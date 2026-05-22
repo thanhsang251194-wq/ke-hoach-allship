@@ -679,4 +679,415 @@ tr:hover td { background: rgba(255,255,255,0.015); }
       <div class="pnl-grid">
         <div class="input-group">
           <label class="input-label">DT tháng 1 (triệu đ)</label>
-          <input class="input-field" type="number" id="rev_t1" value="
+          <input class="input-field" type="number" id="rev_t1" value="65" oninput="calcPnl()">
+          <div class="input-hint">Khởi điểm từ data 7K</div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Tăng trưởng/tháng (%)</label>
+          <input class="input-field" type="number" id="growth" value="18" oninput="calcPnl()">
+          <div class="input-hint">Trung bình 12 tháng</div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Cao điểm T11 (hệ số ×)</label>
+          <input class="input-field" type="number" id="peak" value="1.4" step="0.1" oninput="calcPnl()">
+          <div class="input-hint">11/11, Black Friday, Tết</div>
+        </div>
+      </div>
+
+      <div class="pnl-section-title">Thông số margin & giá vốn</div>
+      <div class="pnl-grid">
+        <div class="input-group">
+          <label class="input-label">Margin gộp (%)</label>
+          <input class="input-field" type="number" id="margin" value="29" oninput="calcPnl()">
+          <div class="input-hint">Sau giá nhập hàng</div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">% DT: Băng keo</label>
+          <input class="input-field" type="number" id="pct_tape" value="55" oninput="calcPnl()">
+          <div class="input-hint">Còn lại = Giấy in nhiệt</div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Tỷ lệ đổi trả (%)</label>
+          <input class="input-field" type="number" id="return_rate" value="1.5" step="0.5" oninput="calcPnl()">
+          <div class="input-hint">Mục tiêu &lt;2%</div>
+        </div>
+      </div>
+
+      <div class="pnl-section-title">Chi phí cố định hàng tháng (triệu đ)</div>
+      <div class="pnl-grid">
+        <div class="input-group">
+          <label class="input-label">Thuê kho (triệu đ)</label>
+          <input class="input-field" type="number" id="rent" value="6" oninput="calcPnl()">
+          <div class="input-hint">T1–T4: 6tr, T5+: 8tr</div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Nhân sự tháng 3+ (triệu đ)</label>
+          <input class="input-field" type="number" id="staff" value="8" oninput="calcPnl()">
+          <div class="input-hint">Người đầu tiên từ T3</div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Marketing / Ads (triệu đ)</label>
+          <input class="input-field" type="number" id="mkt" value="3" oninput="calcPnl()">
+          <div class="input-hint">T1–T2: 0, T3+: tăng dần</div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Vận chuyển / logistics (%DT)</label>
+          <input class="input-field" type="number" id="ship_pct" value="3" step="0.5" oninput="calcPnl()">
+          <div class="input-hint">GHN, GHTK, J&T</div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Điện, internet, phần mềm</label>
+          <input class="input-field" type="number" id="ops" value="2" oninput="calcPnl()">
+          <div class="input-hint">Chi phí vận hành cơ bản</div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Phát sinh / dự phòng</label>
+          <input class="input-field" type="number" id="misc" value="2" oninput="calcPnl()">
+          <div class="input-hint">Luôn giữ buffer</div>
+        </div>
+      </div>
+
+      <div class="pnl-section-title">Kết quả P&L 12 tháng</div>
+      <div class="pnl-table-wrap">
+        <div id="pnl-table"></div>
+      </div>
+
+      <div class="summary-grid" id="pnl-summary"></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+// ─── UTILS ───
+// Tự động tính lại Margin khi input thay đổi
+function updateMargin(el) {
+  const tr = el.closest('tr');
+  const inputs = tr.querySelectorAll('.table-input');
+  if (inputs.length === 2) {
+    const cost = parseFloat(inputs[0].value) || 0;
+    const price = parseFloat(inputs[1].value) || 0;
+    const badge = tr.querySelector('.margin-badge');
+    if (price > 0 && badge) {
+      const margin = ((price - cost) / price * 100).toFixed(0);
+      badge.textContent = margin + '%';
+    }
+  }
+}
+
+// ─── TIMELINE DATA ───
+const months = [
+  {
+    n:1, phase:'phase-1', phaseLabel:'Setup · Nền móng',
+    title:'Thiết lập nền tảng & khai thác data',
+    tasks:[
+      'Đăng ký kinh doanh, mở tài khoản ngân hàng doanh nghiệp',
+      'Thuê kho mini 15m², setup pallet, máy in nhiệt, cân điện tử',
+      'Đàm phán NCC: 2 NCC băng keo dự phòng, 2 NCC giấy in nhiệt',
+      'Nhập hàng pilot: 2 SKU băng keo + 2 SKU giấy in nhiệt (~70–80tr)',
+      'Telesales 400 khách Tier A từ data 7K (kho fulfillment, seller lớn)',
+      'Zalo OA go-live, gửi catalogue PDF chuyên nghiệp cho 200 KH',
+      'Liên hệ quản lý kho Allship – đề xuất trial cung cấp vật tư nội bộ',
+    ],
+    kpis:[['DT','55–75tr'],['Đơn/ngày','15–25'],['KH Allship','3–5 thử'],['Tồn kho','30 ngày']]
+  },
+  {
+    n:2, phase:'phase-1', phaseLabel:'Setup · Nền móng',
+    title:'Vận hành thực tế & tối ưu quy trình',
+    tasks:[
+      'Giao đơn đầu tiên – ghi lại mọi vấn đề phát sinh để cải thiện',
+      'Telesales thêm 500 KH Tier B (SME, hộ kinh doanh) từ data',
+      'Ký hợp đồng cung cấp định kỳ đầu tiên với 2–3 kho Allship',
+      'Xây SOP: quy trình nhận hàng, đóng gói, xuất kho, kiểm kho',
+      'Thiết lập cảnh báo tồn kho tối thiểu trên KiotViet cho từng SKU',
+      'Thu thập feedback KH đầu tiên – điều chỉnh sản phẩm/giá nếu cần',
+    ],
+    kpis:[['DT','110–140tr'],['Đơn/ngày','35–50'],['Hợp đồng','3 Allship'],['Hoà vốn','Tháng này']]
+  },
+  {
+    n:3, phase:'phase-2', phaseLabel:'Growth · Chứng minh',
+    title:'Tuyển người đầu tiên & mở kênh Shopee',
+    tasks:[
+      'Tuyển nhân viên kho/vận hành: 8tr/tháng + KPI thưởng đơn đúng hạn',
+      'Shopee Mall go-live: upload sản phẩm, tối ưu title/ảnh/mô tả',
+      'Chạy Shopee Ads thử nghiệm: 2–3tr/tháng cho 2 SKU chủ lực',
+      'Mở rộng Allship: liên hệ thêm 5–8 kho khác trong hệ thống',
+      'Telesales kênh ngoài: kho 3PL độc lập, SME có nhu cầu lớn',
+      'Bắt đầu đo ROAS từng kênh – tập trung double vào kênh tốt nhất',
+    ],
+    kpis:[['DT','190–230tr'],['Shopee','go-live'],['Allship','6–8 kho'],['Team','2 người']]
+  },
+  {
+    n:4, phase:'phase-2', phaseLabel:'Growth · Chứng minh',
+    title:'Scale Shopee & ra mắt Băng keo hàng dễ vỡ',
+    tasks:[
+      'Scale Shopee Ads kênh hiệu quả (ROAS ≥ 3x), tăng lên 5–7tr/tháng',
+      'Ra mắt SKU Băng keo hàng dễ vỡ – tiếp cận 10–15 KH có tiềm năng',
+      'Đề xuất hợp đồng 3 tháng cho top 5 KH Allship: giảm 3%, đổi lấy cam kết',
+      'Zalo OA: gửi blast báo giá/deal cho 2.000 KH trong list data',
+      'Đàm phán lại giá NCC lần 1: volume 3 tháng = leverage để ép giá thêm 3–5%',
+    ],
+    kpis:[['DT','280–340tr'],['Hàng DV','10 KH'],['Hợp đồng 3T','5 KH'],['ROAS','≥3x']]
+  },
+  {
+    n:5, phase:'phase-2', phaseLabel:'Growth · Chứng minh',
+    title:'Tuyển sales & mở kênh Zalo OA mạnh hơn',
+    tasks:[
+      'Tuyển nhân viên Sales/CSKH: 8tr + 1% DT mới từ khách họ khai thác',
+      'Zalo OA: xây nội dung định kỳ (tips đóng gói, giá sỉ, flash deal)',
+      'Loyalty program đơn giản: mua đủ 10 đơn → giảm 2% đơn tiếp theo',
+      'Review toàn danh mục: dừng hoặc giảm tồn kho SKU vòng quay chậm',
+      'Nếu kho chật: tìm kho mới 25–30m², ký hợp đồng 6 tháng',
+    ],
+    kpis:[['DT','370–430tr'],['Team','3 người'],['Loyalty','launch'],['KH active','80+']]
+  },
+  {
+    n:6, phase:'phase-3', phaseLabel:'Scale · Mở rộng',
+    title:'Đánh giá nửa năm & tối ưu toàn diện',
+    tasks:[
+      'Review P&L 6 tháng: SKU nào sinh lời nhất? Kênh nào ROAS cao nhất?',
+      'Tập trung 80% nguồn lực vào top 20% SKU/kênh hiệu quả nhất',
+      'Đề xuất hợp đồng 6 tháng với top Allship khách hàng',
+      'TikTok Shop thử nghiệm: 3–5 video UGC về tips đóng gói hàng cho seller',
+      'Mục tiêu: Allship ≤ 50% DT – kênh ngoài phải bằng hoặc vượt qua',
+    ],
+    kpis:[['DT','470–530tr'],['Recurring','55%+'],['EBITDA','16%'],['Kênh ngoài','≥50%DT']]
+  },
+  {
+    n:7, phase:'phase-3', phaseLabel:'Scale · Mở rộng',
+    title:'TikTok Shop & referral program',
+    tasks:[
+      'TikTok Shop scale nếu video T6 hiệu quả: tăng tần suất content',
+      'Referral: KH giới thiệu KH mới → cả hai được giảm 2% đơn tiếp',
+      'Tuyển part-time Content/Ads: sinh viên 4h/ngày, 4–5tr/tháng',
+      'Chuẩn bị tồn kho dự phòng tăng lên 20–25 ngày cho Q4 peak',
+      'Review nhân sự: ai đạt KPI? Ai cần cải thiện?',
+    ],
+    kpis:[['DT','530–600tr'],['Referral','5% đơn mới'],['Team','3.5 người'],['TikTok','go-scale']]
+  },
+  {
+    n:8, phase:'phase-3', phaseLabel:'Scale · Mở rộng',
+    title:'Chuẩn bị Q4 & tối ưu kho vận',
+    tasks:[
+      'Nhập hàng dự trữ Q4: tăng 50–60% tồn kho so với bình thường',
+      'Đàm phán lại NCC lần 2: 8 tháng volume = giảm thêm 3–5%',
+      'Google Ads thử nghiệm: "mua băng keo sỉ TPHCM", ngân sách 3–5tr/tháng',
+      'Xây checklist chuẩn bị 11/11: quy trình, nhân lực tạm thời, vận chuyển',
+      'Mở rộng kho hoặc thuê thêm kho phụ nếu cần',
+    ],
+    kpis:[['DT','590–680tr'],['Tồn kho','25–30 ngày'],['NCC giá','tốt hơn 5%'],['Q4 ready','']]
+  },
+  {
+    n:9, phase:'phase-3', phaseLabel:'Scale · Mở rộng',
+    title:'Hệ thống hoá quy trình & giảm phụ thuộc Founder',
+    tasks:[
+      'Viết SOP đầy đủ: nhân viên mới học trong 3 ngày có thể tự chạy',
+      'Thiết lập đặt hàng tự động: Zalo bot hoặc Google Form đơn giản',
+      'Băng keo hàng dễ vỡ: mở rộng thêm 5–8 KH lớn, ký hợp đồng 6 tháng',
+      'Tuyển thêm 1 nhân viên kho nếu đơn vượt 150/ngày',
+      'Bắt đầu lên kế hoạch năm 2: mở rộng địa lý? Thêm SKU mới?',
+    ],
+    kpis:[['DT','660–750tr'],['SOP','hoàn chỉnh'],['KH Mới','15+'],['Tự chạy','được']]
+  },
+  {
+    n:10, phase:'phase-4', phaseLabel:'Lock · Tối ưu',
+    title:'Hợp đồng năm & khoá khách hàng dài hạn',
+    tasks:[
+      'Tiếp cận top 10 KH: đề xuất hợp đồng 1 năm, giảm 5%, giao tận nơi',
+      'Đàm phán NCC: hợp đồng năm 2026, cam kết volume đổi giá tốt nhất',
+      'Subscription đơn giản: đăng ký nhận hàng định kỳ hàng tháng, auto-charge',
+      'Review toàn bộ chi phí: cắt giảm 10–15% chi phí không cần thiết',
+    ],
+    kpis:[['DT','730–830tr'],['Hợp đồng năm','5+ KH'],['Recurring','65%+'],['Margin','tăng 2%']]
+  },
+  {
+    n:11, phase:'phase-4', phaseLabel:'Lock · Tối ưu',
+    title:'Cao điểm 11/11 & Black Friday – tháng doanh thu đỉnh',
+    tasks:[
+      '11/11 campaign: flash deal 5–8% cho đơn lớn, thông báo trước 1 tuần',
+      'Black Friday: combo tiết kiệm băng keo + giấy in nhiệt (giảm 7–10%)',
+      'Hợp tác với đơn vị vận chuyển: đẩy nhanh giao hàng mùa cao điểm',
+      'Đảm bảo tồn kho KHÔNG đứt hàng – đây là tháng quan trọng nhất',
+      'Ghi nhận toàn bộ data: KH nào mua nhiều nhất? Để ưu tiên năm sau',
+    ],
+    kpis:[['DT','1.0–1.3 tỷ'],['Tăng MoM','40–50%'],['Tồn kho','không đứt'],['Top KH','ghi nhận']]
+  },
+  {
+    n:12, phase:'phase-4', phaseLabel:'Lock · Tối ưu',
+    title:'Tổng kết năm 1 & lên kế hoạch năm 2',
+    tasks:[
+      'Review P&L toàn năm: SKU nào, kênh nào, KH nào sinh lời nhất?',
+      'Gia hạn & nâng cấp hợp đồng Allship – đàm phán điều khoản tốt hơn',
+      'Chốt hợp đồng 1 năm với top 10 KH ngoài Allship',
+      'Lên kế hoạch năm 2: thêm SKU mới (túi PE/màng pallet)? Mở thêm địa điểm?',
+      'Tổng kết nhân sự: thưởng cuối năm, điều chỉnh mức lương, KPI năm sau',
+      'Họp trình kết quả lên sếp + đề xuất ngân sách mở rộng năm 2',
+    ],
+    kpis:[['DT','900tr–1.1 tỷ'],['DT Cả năm','≥7 tỷ'],['Lợi nhuận ròng','≥16%'],['Kế hoạch 2026','done']]
+  },
+];
+
+function renderTimeline() {
+  const container = document.getElementById('timeline-months');
+  container.innerHTML = months.map(m => `
+    <div class="timeline-month-inner">
+      <div class="t-month">
+        <div class="t-month-num ${m.n<=2?'active':''}" style="color:${
+          m.phase==='phase-1'?'var(--blue)':m.phase==='phase-2'?'var(--accent)':m.phase==='phase-3'?'var(--amber)':'var(--purple)'
+        }">${String(m.n).padStart(2,'0')}</div>
+        <div class="t-month-label">Tháng</div>
+      </div>
+      <div class="t-content">
+        <div class="t-phase ${m.phase}">${m.phaseLabel}</div>
+        <div class="t-title">${m.title}</div>
+        <ul class="t-tasks">${m.tasks.map(t=>`<li>${t}</li>`).join('')}</ul>
+        <div class="t-kpi">${m.kpis.map(k=>`<div class="t-kpi-item"><span>${k[0]}:</span><strong>${k[1]}</strong></div>`).join('')}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ─── P&L CALCULATOR ───
+function getVal(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function fmt(n) { return Math.round(n).toLocaleString('vi-VN'); }
+
+function calcPnl() {
+  const rev1    = getVal('rev_t1') * 1e6;
+  const growth  = getVal('growth') / 100;
+  const peak    = getVal('peak');
+  const margin  = getVal('margin') / 100;
+  const retRate = getVal('return_rate') / 100;
+  const rent    = getVal('rent') * 1e6;
+  const staffM  = getVal('staff') * 1e6;
+  const mkt     = getVal('mkt') * 1e6;
+  const shipPct = getVal('ship_pct') / 100;
+  const ops     = getVal('ops') * 1e6;
+  const misc    = getVal('misc') * 1e6;
+
+  const revs = [], cogs = [], gross = [], shipping = [], staffCost = [], mktCost = [], rentCost = [], opsCost = [], ebitda = [];
+  let cumRev = 0, cumEbitda = 0;
+
+  for (let i = 0; i < 12; i++) {
+    let r = rev1 * Math.pow(1 + growth, i);
+    if (i === 10) r *= peak;   // T11
+    if (i === 11) r *= 0.88;   // T12 normalise
+
+    const ret = r * retRate;
+    const netRev = r - ret;
+    const cog = netRev * (1 - margin);
+    const gros = netRev - cog;
+    const ship = netRev * shipPct;
+    const sC = i >= 2 ? staffM * (i >= 4 ? (i >= 6 ? 1.4 : 1.2) : 1) : 0; // growing staff
+    const mC = i >= 2 ? mkt * (1 + i * 0.08) : mkt * 0.3;
+    const rC = i >= 4 ? rent * 1.3 : rent; // bigger warehouse from T5
+    const oC = ops + misc;
+    const eb = gros - ship - sC - mC - rC - oC;
+
+    revs.push(netRev); cogs.push(cog); gross.push(gros);
+    shipping.push(ship); staffCost.push(sC); mktCost.push(mC);
+    rentCost.push(rC); opsCost.push(oC); ebitda.push(eb);
+    cumRev += netRev; cumEbitda += eb;
+  }
+
+  const headers = ['Chỉ số','T1','T2','T3','T4','T5','T6','T7','T8','T9','T10','T11','T12','Cả năm'];
+  const rows = [
+    { label:'Doanh thu thuần', vals: revs, cls:'pnl-row-revenue', fmt: v => (v/1e6).toFixed(0), sum: true },
+    { label:'↳ Giá vốn (COGS)', vals: cogs.map(v=>-v), cls:'pnl-row-sub', fmt: v => (v/1e6).toFixed(0), sum: true },
+    { label:'Lợi nhuận gộp', vals: gross, cls:'pnl-row-gross', fmt: v => (v/1e6).toFixed(0), sum: true },
+    { label:'↳ Margin %', vals: revs.map((r,i)=>gross[i]/r*100), cls:'pnl-row-sub', fmt: v => v.toFixed(1)+'%', isMargin: true },
+    { label:'Chi phí vận chuyển', vals: shipping.map(v=>-v), cls:'pnl-row-sub', fmt: v => (v/1e6).toFixed(0), sum: true },
+    { label:'Chi phí nhân sự', vals: staffCost.map(v=>-v), cls:'pnl-row-sub', fmt: v => (v/1e6).toFixed(0), sum: true },
+    { label:'Chi phí marketing', vals: mktCost.map(v=>-v), cls:'pnl-row-sub', fmt: v => (v/1e6).toFixed(0), sum: true },
+    { label:'Chi phí kho', vals: rentCost.map(v=>-v), cls:'pnl-row-sub', fmt: v => (v/1e6).toFixed(0), sum: true },
+    { label:'Vận hành + phát sinh', vals: Array.from({length:12},(_,i)=>-(ops+misc)), cls:'pnl-row-sub', fmt: v => (v/1e6).toFixed(0), sum: true },
+    { label:'EBITDA', vals: ebitda, cls:'pnl-row-ebitda', fmt: v => (v/1e6).toFixed(0), sum: true },
+    { label:'EBITDA Margin %', vals: revs.map((r,i)=>ebitda[i]/r*100), cls:'pnl-row-sub', fmt: v => v.toFixed(1)+'%', isMargin: true },
+  ];
+
+  let html = `<div class="pnl-result-row pnl-row-header">`;
+  headers.forEach(h => html += `<div>${h}</div>`);
+  html += '</div>';
+
+  rows.forEach(row => {
+    html += `<div class="pnl-result-row ${row.cls}">`;
+    html += `<div style="text-align:left;font-family:var(--sans);font-size:12px">${row.label}</div>`;
+
+    let yr = 0;
+    row.vals.forEach((v, i) => {
+      const actual = v;
+      const disp = row.isMargin ? row.fmt(Math.abs(actual)) : row.fmt(actual);
+      const color = row.isMargin ? '' : (actual >= 0 ? 'class="pnl-cell-pos"' : 'class="pnl-cell-neg"');
+      html += `<div ${actual < 0 && !row.isMargin ? 'class="pnl-cell-neg"' : (actual > 0 && !row.isMargin && row.cls !== 'pnl-row-sub' ? 'class="pnl-cell-pos"' : '')}>${disp}</div>`;
+      if (!row.isMargin && row.sum) yr += actual;
+    });
+
+    if (row.isMargin) {
+      const avgM = ebitda.reduce((a,b)=>a+b,0)/revs.reduce((a,b)=>a+b,0)*100;
+      const gmVal = gross.reduce((a,b)=>a+b,0)/revs.reduce((a,b)=>a+b,0)*100;
+      html += `<div class="pnl-cell-total">${(row.label.includes('EBITDA') ? avgM : gmVal).toFixed(1)}%</div>`;
+    } else {
+      html += `<div class="pnl-cell-total ${yr>=0?'pnl-cell-pos':'pnl-cell-neg'}">${row.fmt(yr)}</div>`;
+    }
+    html += '</div>';
+  });
+
+  document.getElementById('pnl-table').innerHTML = html;
+
+  // Summary
+  const totalRev = revs.reduce((a,b)=>a+b,0);
+  const totalGross = gross.reduce((a,b)=>a+b,0);
+  const totalEbitda = ebitda.reduce((a,b)=>a+b,0);
+  const breakEven = ebitda.findIndex(v=>v>0) + 1;
+
+  document.getElementById('pnl-summary').innerHTML = `
+    <div class="summary-box">
+      <div class="summary-box-label">Tổng DT năm</div>
+      <div class="summary-box-value" style="color:var(--blue)">${(totalRev/1e9).toFixed(2)}B</div>
+    </div>
+    <div class="summary-box">
+      <div class="summary-box-label">Tổng lợi nhuận gộp</div>
+      <div class="summary-box-value" style="color:var(--accent)">${(totalGross/1e9).toFixed(2)}B</div>
+    </div>
+    <div class="summary-box">
+      <div class="summary-box-label">EBITDA cả năm</div>
+      <div class="summary-box-value" style="color:${totalEbitda>=0?'var(--accent)':'var(--red)'}">${(totalEbitda/1e9).toFixed(2)}B</div>
+    </div>
+    <div class="summary-box">
+      <div class="summary-box-label">Hoà vốn tháng</div>
+      <div class="summary-box-value" style="color:var(--amber)">${breakEven > 0 ? 'T' + breakEven : 'Chưa'}</div>
+    </div>
+    <div class="summary-box">
+      <div class="summary-box-label">EBITDA margin</div>
+      <div class="summary-box-value" style="color:var(--purple)">${(totalEbitda/totalRev*100).toFixed(1)}%</div>
+    </div>
+  `;
+}
+
+function setScenario(s) {
+  document.querySelectorAll('.scenario-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('sc-'+s).classList.add('active');
+  const vals = {
+    conservative: { rev_t1:45, growth:12, margin:25, peak:1.3, ship_pct:3.5, staff:7, mkt:2, rent:5, ops:2, misc:2, return_rate:2.5 },
+    base:         { rev_t1:65, growth:18, margin:29, peak:1.4, ship_pct:3,   staff:8, mkt:3, rent:6, ops:2, misc:2, return_rate:1.5 },
+    optimistic:   { rev_t1:90, growth:25, margin:32, peak:1.6, ship_pct:2.5, staff:9, mkt:5, rent:6, ops:2, misc:2, return_rate:1.0 },
+  };
+  Object.entries(vals[s]).forEach(([k,v]) => { const el = document.getElementById(k); if(el) el.value = v; });
+  calcPnl();
+}
+
+function resetToBase() { setScenario('base'); }
+
+// ─── NAV ───
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// INIT
+renderTimeline();
+calcPnl();
+</script>
+</body>
+</html>
