@@ -314,11 +314,11 @@ tr:hover td { background: rgba(255,255,255,0.015); }
   <div class="hero">
     <div class="hero-tag">Kế hoạch kinh doanh · Năm 2026</div>
     <h1>Băng Keo & <span>Giấy In Nhiệt</span></h1>
-    <p class="hero-sub">2 SKU cốt lõi, khai thác data 7.000 khách hàng Allship. Tập trung tối đa, không dàn trải.</p>
+    <p class="hero-sub">2 SKU cốt lõi, vốn dưới 500 triệu, khai thác data 7.000 khách hàng Allship. Tập trung tối đa, không dàn trải.</p>
     <div class="hero-stats">
       <div class="hero-stat">
         <div class="hero-stat-label">Vốn khởi động</div>
-        <div class="hero-stat-value green">~177tr</div>
+        <div class="hero-stat-value green">~342tr</div>
       </div>
       <div class="hero-stat">
         <div class="hero-stat-label">Hoà vốn</div>
@@ -377,11 +377,11 @@ tr:hover td { background: rgba(255,255,255,0.015); }
       <tr><th>Hạng mục</th><th class="right">Số tiền</th><th>Loại</th><th>Ghi chú</th></tr>
       <tr><td>Hàng tồn kho ban đầu – Băng keo (3 loại)</td><td class="right mono">70.000.000</td><td><span class="badge blue">Vốn lưu động</span></td><td style="font-size:12px;color:var(--text2)">Nhập 30 ngày, quay vòng rồi tái nhập</td></tr>
       <tr><td>Hàng tồn kho ban đầu – Giấy in nhiệt (2 size)</td><td class="right mono">50.000.000</td><td><span class="badge blue">Vốn lưu động</span></td><td style="font-size:12px;color:var(--text2)">80×100mm và 100×150mm ưu tiên trước</td></tr>
-      <tr><td>Thuê kho 400-600m2</td><td class="right mono">30.000.000</td><td><span class="badge amber">Chi phí cố định</span></td><td style="font-size:12px;color:var(--text2)">Dự kiến 25tr - 40tr/tháng</td></tr>
+      <tr><td>Thuê kho 400-600m2 (6 tháng)</td><td class="right mono">180.000.000</td><td><span class="badge amber">Chi phí cố định</span></td><td style="font-size:12px;color:var(--text2)">30tr × 6 tháng (giá 25–40tr/tháng)</td></tr>
       <tr><td>Thiết bị kho (pallet, camera, cân, máy in nhiệt...)</td><td class="right mono">8.000.000</td><td><span class="badge amber">1 lần</span></td><td style="font-size:12px;color:var(--text2)">Dự kiến 6tr - 10tr</td></tr>
       <tr><td>Đăng ký kinh doanh + phần mềm OMS</td><td class="right mono">3.000.000</td><td><span class="badge amber">1 lần</span></td><td style="font-size:12px;color:var(--text2)">Dự kiến 2tr - 4tr</td></tr>
-      <tr><td>Dự phòng phát sinh (10%)</td><td class="right mono">16.000.000</td><td><span class="badge">Buffer</span></td><td style="font-size:12px;color:var(--text2)">Không dùng nếu mọi thứ theo kế hoạch</td></tr>
-      <tr class="tr-total"><td><strong>TỔNG VỐN CẦN</strong></td><td class="right mono"><strong style="color:var(--accent)">177.000.000</strong></td><td><span class="badge green">✓ Khả thi</span></td><td style="font-size:12px;color:var(--text2)">Dành nguồn lực để scale sớm</td></tr>
+      <tr><td>Dự phòng phát sinh (~10%)</td><td class="right mono">31.000.000</td><td><span class="badge">Buffer</span></td><td style="font-size:12px;color:var(--text2)">Không dùng nếu mọi thứ theo kế hoạch</td></tr>
+      <tr class="tr-total"><td><strong>TỔNG VỐN CẦN</strong></td><td class="right mono"><strong style="color:var(--accent)">342.000.000</strong></td><td><span class="badge green">✓ Khả thi</span></td><td style="font-size:12px;color:var(--text2)">Dành nguồn lực để scale sớm</td></tr>
     </table>
   </div>
 </div>
@@ -716,9 +716,9 @@ tr:hover td { background: rgba(255,255,255,0.015); }
       <div class="pnl-section-title">Chi phí cố định hàng tháng (triệu đ)</div>
       <div class="pnl-grid">
         <div class="input-group">
-          <label class="input-label">Thuê kho (triệu đ)</label>
+          <label class="input-label">Thuê kho (triệu đ/tháng)</label>
           <input class="input-field" type="number" id="rent" value="30" oninput="calcPnl()">
-          <div class="input-hint">Kho 400-600m2 (25tr - 40tr)</div>
+          <div class="input-hint">Tính phí theo tháng (30tr)</div>
         </div>
         <div class="input-group">
           <label class="input-label">Nhân sự tháng 3+ (triệu đ)</label>
@@ -782,7 +782,7 @@ const months = [
     title:'Thiết lập nền tảng & khai thác data',
     tasks:[
       'Đăng ký kinh doanh, mở tài khoản ngân hàng doanh nghiệp',
-      'Thuê kho 400-600m2, setup pallet, máy in nhiệt, cân điện tử',
+      'Thuê kho 400-600m2 (thanh toán 6 tháng), setup pallet, máy in nhiệt, cân điện tử',
       'Đàm phán NCC: 2 NCC băng keo dự phòng, 2 NCC giấy in nhiệt',
       'Nhập hàng pilot: 2 SKU băng keo + 2 SKU giấy in nhiệt (~70–80tr)',
       'Telesales 400 khách Tier A từ data 7K (kho fulfillment, seller lớn)',
