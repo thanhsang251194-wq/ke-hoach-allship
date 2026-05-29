@@ -6,143 +6,38 @@
 <title>Kế Hoạch Kinh Doanh 2026 – Băng Keo & Giấy In Nhiệt</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #0d0f14;
-  --bg2: #13161e;
-  --bg3: #1a1e28;
-  --bg4: #222736;
-  --border: #2a2f3d;
-  --border2: #353c50;
-  --text: #e8eaf0;
-  --text2: #8b92a8;
-  --text3: #555d78;
-  --accent: #4ade80;
-  --accent2: #22c55e;
-  --blue: #60a5fa;
-  --blue2: #3b82f6;
-  --amber: #fbbf24;
-  --red: #f87171;
-  --purple: #a78bfa;
-  --teal: #34d399;
-  --mono: 'IBM Plex Mono', monospace;
-  --sans: 'Be Vietnam Pro', sans-serif;
-}
+:root { --bg: #0d0f14; --bg2: #13161e; --bg3: #1a1e28; --bg4: #222736; --border: #2a2f3d; --border2: #353c50; --text: #e8eaf0; --text2: #8b92a8; --text3: #555d78; --accent: #4ade80; --accent2: #22c55e; --blue: #60a5fa; --blue2: #3b82f6; --amber: #fbbf24; --red: #f87171; --purple: #a78bfa; --teal: #34d399; --mono: 'IBM Plex Mono', monospace; --sans: 'Be Vietnam Pro', sans-serif; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 14px;
-  line-height: 1.6;
-  min-height: 100vh;
-}
-/* NAV */
-.nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(13,15,20,0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; gap: 0;
-  padding: 0 24px;
-}
-.nav-logo {
-  font-family: var(--mono);
-  font-size: 12px; font-weight: 600;
-  color: var(--accent);
-  padding: 16px 24px 16px 0;
-  border-right: 1px solid var(--border);
-  margin-right: 0; white-space: nowrap;
-  letter-spacing: 0.05em;
-}
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 14px; line-height: 1.6; min-height: 100vh; }
+.nav { position: sticky; top: 0; z-index: 100; background: rgba(13,15,20,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0; padding: 0 24px; }
+.nav-logo { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--accent); padding: 16px 24px 16px 0; border-right: 1px solid var(--border); margin-right: 0; white-space: nowrap; letter-spacing: 0.05em; }
 .nav-tabs { display: flex; gap: 0; overflow-x: auto; }
-.nav-tab {
-  padding: 16px 20px;
-  font-size: 13px; font-weight: 500;
-  color: var(--text2);
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  white-space: nowrap;
-  transition: all 0.2s;
-  background: none; border-top: none; border-left: none; border-right: none;
-  font-family: var(--sans);
-}
+.nav-tab { padding: 16px 20px; font-size: 13px; font-weight: 500; color: var(--text2); cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.2s; background: none; border: none; font-family: var(--sans); }
 .nav-tab:hover { color: var(--text); }
 .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
-
-/* LAYOUT */
 .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
 .section { display: none; }
 .section.active { display: block; }
-
-/* HERO */
-.hero {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 40px;
-  background: var(--bg2);
-  margin-bottom: 24px;
-  position: relative; overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(ellipse at 20% 50%, rgba(74,222,128,0.06) 0%, transparent 60%),
-              radial-gradient(ellipse at 80% 20%, rgba(96,165,250,0.05) 0%, transparent 50%);
-  pointer-events: none;
-}
-.hero-tag {
-  font-family: var(--mono); font-size: 11px; font-weight: 500;
-  color: var(--accent); letter-spacing: 0.1em;
-  text-transform: uppercase; margin-bottom: 16px;
-  display: inline-flex; align-items: center; gap: 8px;
-}
+.hero { border: 1px solid var(--border); border-radius: 12px; padding: 40px; background: var(--bg2); margin-bottom: 24px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 20% 50%, rgba(74,222,128,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(96,165,250,0.05) 0%, transparent 50%); pointer-events: none; }
+.hero-tag { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; display: inline-flex; align-items: center; gap: 8px; }
 .hero-tag::before { content: '▶'; font-size: 8px; }
-.hero h1 {
-  font-size: 32px; font-weight: 700; line-height: 1.2;
-  color: var(--text); margin-bottom: 12px;
-}
+.hero h1 { font-size: 32px; font-weight: 700; line-height: 1.2; color: var(--text); margin-bottom: 12px; }
 .hero h1 span { color: var(--accent); }
 .hero-sub { color: var(--text2); font-size: 15px; margin-bottom: 32px; max-width: 600px; }
 .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.hero-stat {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 8px; padding: 16px;
-}
+.hero-stat { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
 .hero-stat-label { font-family: var(--mono); font-size: 10px; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
 .hero-stat-value { font-size: 22px; font-weight: 700; }
-.hero-stat-value.green { color: var(--accent); }
-.hero-stat-value.blue { color: var(--blue); }
-.hero-stat-value.amber { color: var(--amber); }
-.hero-stat-value.purple { color: var(--purple); }
-
-/* CARDS */
+.hero-stat-value.green { color: var(--accent); } .hero-stat-value.blue { color: var(--blue); } .hero-stat-value.amber { color: var(--amber); } .hero-stat-value.purple { color: var(--purple); }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
 .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-.card {
-  background: var(--bg2); border: 1px solid var(--border);
-  border-radius: 10px; padding: 24px;
-}
-.card-title {
-  font-family: var(--mono); font-size: 11px; font-weight: 600;
-  color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase;
-  margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
-}
+.card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+.card-title { font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
 .card-title .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-.card-title .dot.blue { background: var(--blue); }
-.card-title .dot.amber { background: var(--amber); }
-.card-title .dot.purple { background: var(--purple); }
-.card-title .dot.red { background: var(--red); }
-
-/* TABLE & INPUTS */
+.card-title .dot.blue { background: var(--blue); } .card-title .dot.amber { background: var(--amber); } .card-title .dot.purple { background: var(--purple); } .card-title .dot.red { background: var(--red); }
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
-th {
-  text-align: left; padding: 10px 12px;
-  font-family: var(--mono); font-size: 10px; font-weight: 600;
-  color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase;
-  border-bottom: 1px solid var(--border2);
-  white-space: nowrap;
-}
+th { text-align: left; padding: 10px 12px; font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid var(--border2); white-space: nowrap; }
 th.right { text-align: right; }
 td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
 td.right { text-align: right; font-family: var(--mono); }
@@ -150,77 +45,30 @@ td.mono { font-family: var(--mono); font-size: 12px; }
 tr:last-child td { border-bottom: none; }
 tr:hover td { background: rgba(255,255,255,0.015); }
 .tr-total td { border-top: 1px solid var(--border2); background: var(--bg3); font-weight: 600; }
-.badge {
-  display: inline-flex; align-items: center;
-  padding: 2px 8px; border-radius: 4px;
-  font-family: var(--mono); font-size: 10px; font-weight: 600;
-  letter-spacing: 0.05em;
-}
-.badge.green { background: rgba(74,222,128,0.12); color: var(--accent); }
-.badge.blue { background: rgba(96,165,250,0.12); color: var(--blue); }
-.badge.amber { background: rgba(251,191,36,0.12); color: var(--amber); }
-.badge.red { background: rgba(248,113,113,0.12); color: var(--red); }
-.badge.purple { background: rgba(167,139,250,0.12); color: var(--purple); }
-
-.table-input {
-  background: var(--bg4);
-  border: 1px solid var(--border2);
-  color: var(--text);
-  font-family: var(--mono);
-  font-size: 12px;
-  padding: 4px 8px;
-  width: 90px;
-  border-radius: 4px;
-  text-align: right;
-  outline: none;
-  transition: all 0.2s;
-}
-.table-input.red { color: var(--red); }
-.table-input.green { color: var(--accent); }
+.badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 4px; font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; }
+.badge.green { background: rgba(74,222,128,0.12); color: var(--accent); } .badge.blue { background: rgba(96,165,250,0.12); color: var(--blue); } .badge.amber { background: rgba(251,191,36,0.12); color: var(--amber); } .badge.red { background: rgba(248,113,113,0.12); color: var(--red); } .badge.purple { background: rgba(167,139,250,0.12); color: var(--purple); }
+.table-input { background: var(--bg4); border: 1px solid var(--border2); color: var(--text); font-family: var(--mono); font-size: 12px; padding: 4px 8px; width: 90px; border-radius: 4px; text-align: right; outline: none; transition: all 0.2s; }
 .table-input:focus { border-color: var(--accent); background: var(--bg3); }
-
-/* TIMELINE & OTHERS */
 .timeline { position: relative; }
-.timeline-month-inner {
-  display: grid; grid-template-columns: 80px 1fr;
-  gap: 20px; padding: 20px 0;
-  border-bottom: 1px solid var(--border);
-  position: relative;
-}
+.timeline-month-inner { display: grid; grid-template-columns: 80px 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border); position: relative; }
 .timeline-month-inner:last-child { border-bottom: none; }
 .t-month { display: flex; flex-direction: column; align-items: center; padding-top: 4px; }
 .t-month-num { font-family: var(--mono); font-size: 24px; font-weight: 600; line-height: 1; color: var(--text3); }
 .t-month-label { font-family: var(--mono); font-size: 9px; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; }
 .t-month-num.active { color: var(--accent); }
 .t-content { flex: 1; }
-.t-phase {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 3px 10px; border-radius: 4px;
-  font-family: var(--mono); font-size: 10px; font-weight: 600;
-  letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px;
-}
-.phase-1 { background: rgba(96,165,250,0.1); color: var(--blue); }
-.phase-2 { background: rgba(74,222,128,0.1); color: var(--accent); }
-.phase-3 { background: rgba(251,191,36,0.1); color: var(--amber); }
-.phase-4 { background: rgba(167,139,250,0.1); color: var(--purple); }
+.t-phase { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 4px; font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
+.phase-1 { background: rgba(96,165,250,0.1); color: var(--blue); } .phase-2 { background: rgba(74,222,128,0.1); color: var(--accent); } .phase-3 { background: rgba(251,191,36,0.1); color: var(--amber); } .phase-4 { background: rgba(167,139,250,0.1); color: var(--purple); }
 .t-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
 .t-tasks { list-style: none; display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
 .t-tasks li { font-size: 13px; color: var(--text2); padding-left: 14px; position: relative; }
 .t-tasks li::before { content: '—'; position: absolute; left: 0; color: var(--text3); }
 .t-kpi { display: flex; gap: 8px; flex-wrap: wrap; }
-.t-kpi-item {
-  background: var(--bg3); border: 1px solid var(--border);
-  border-radius: 6px; padding: 6px 12px;
-  font-family: var(--mono); font-size: 11px;
-}
-.t-kpi-item span { color: var(--text3); }
-.t-kpi-item strong { color: var(--accent); margin-left: 4px; }
-
-/* PNL CALCULATOR */
+.t-kpi-item { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; font-family: var(--mono); font-size: 11px; }
+.t-kpi-item span { color: var(--text3); } .t-kpi-item strong { color: var(--accent); margin-left: 4px; }
 .pnl-wrap { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
 .pnl-header { padding: 20px 24px; background: var(--bg3); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-.pnl-header h3 { font-size: 14px; font-weight: 600; }
-.pnl-header p { font-size: 12px; color: var(--text2); margin-top: 2px; }
+.pnl-header h3 { font-size: 14px; font-weight: 600; } .pnl-header p { font-size: 12px; color: var(--text2); margin-top: 2px; }
 .reset-btn { background: var(--bg4); border: 1px solid var(--border2); color: var(--text2); font-size: 12px; font-family: var(--mono); padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
 .reset-btn:hover { border-color: var(--accent); color: var(--accent); }
 .pnl-body { padding: 24px; }
@@ -230,10 +78,8 @@ tr:hover td { background: rgba(255,255,255,0.015); }
 .input-field { background: var(--bg3); border: 1px solid var(--border2); border-radius: 6px; padding: 10px 12px; color: var(--text); font-family: var(--mono); font-size: 13px; width: 100%; outline: none; transition: border-color 0.2s; }
 .input-field:focus { border-color: var(--accent); }
 .input-hint { font-size: 11px; color: var(--text3); }
-
 .pnl-section-title { font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; padding: 0 0 10px; border-bottom: 1px solid var(--border); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
 .pnl-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
 .pnl-result-row { display: grid; grid-template-columns: 200px repeat(13, 1fr); gap: 0; font-size: 12px; }
 .pnl-result-row > div { padding: 8px 6px; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); text-align: right; font-family: var(--mono); }
 .pnl-result-row > div:first-child { text-align: left; font-family: var(--sans); padding-left: 12px; font-size: 13px; }
@@ -243,35 +89,27 @@ tr:hover td { background: rgba(255,255,255,0.015); }
 .pnl-row-revenue > div { color: var(--blue); font-weight: 600; }
 .pnl-row-sub > div { color: var(--text2); font-size: 11px !important; }
 .pnl-row-gross > div { color: var(--accent); font-weight: 700; background: rgba(74,222,128,0.04); }
-.pnl-row-ebitda > div { font-weight: 700; }
-.pnl-row-ebitda > div:first-child { color: var(--text) !important; }
-.pnl-cell-pos { color: var(--accent) !important; }
-.pnl-cell-neg { color: var(--red) !important; }
+.pnl-row-ebitda > div { font-weight: 700; } .pnl-row-ebitda > div:first-child { color: var(--text) !important; }
+.pnl-cell-pos { color: var(--accent) !important; } .pnl-cell-neg { color: var(--red) !important; }
 .pnl-cell-total { background: var(--bg3); font-weight: 700 !important; border-left: 2px solid var(--border2); }
-
 .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 24px; }
 .summary-box { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
 .summary-box-label { font-family: var(--mono); font-size: 9px; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
 .summary-box-value { font-size: 18px; font-weight: 700; font-family: var(--mono); }
-
-/* SCENARIO & OTHERS */
 .scenario-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
 .scenario-card { border: 1px solid var(--border); border-radius: 10px; padding: 20px; cursor: pointer; transition: all 0.2s; background: var(--bg3); }
-.scenario-card:hover { border-color: var(--border2); }
-.scenario-card.active { border-color: var(--accent); background: rgba(74,222,128,0.05); }
+.scenario-card:hover { border-color: var(--border2); } .scenario-card.active { border-color: var(--accent); background: rgba(74,222,128,0.05); }
 .scenario-name { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
 .scenario-desc { font-size: 12px; color: var(--text2); margin-bottom: 12px; }
 .scenario-stat { display: flex; justify-content: space-between; align-items: center; font-size: 12px; padding: 4px 0; border-bottom: 1px solid var(--border); }
 .scenario-stat:last-child { border: none; }
 .scenario-stat-val { font-family: var(--mono); font-weight: 600; }
-
 .wh-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .wh-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; }
 .wh-num { width: 28px; height: 28px; border-radius: 6px; background: var(--bg4); border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--text3); flex-shrink: 0; }
 .wh-name { font-weight: 600; font-size: 13px; margin-bottom: 2px; }
 .wh-detail { font-size: 12px; color: var(--text2); }
 .wh-price { font-family: var(--mono); font-size: 12px; color: var(--amber); font-weight: 600; }
-
 .staff-timeline { position: relative; padding-left: 20px; border-left: 2px solid var(--border2); }
 .staff-item { position: relative; padding: 0 0 20px 20px; }
 .staff-item::before { content: ''; position: absolute; left: -26px; top: 5px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); }
@@ -280,12 +118,10 @@ tr:hover td { background: rgba(255,255,255,0.015); }
 .staff-role { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
 .staff-desc { font-size: 12px; color: var(--text2); margin-bottom: 8px; }
 .staff-cost { font-family: var(--mono); font-size: 13px; color: var(--amber); font-weight: 600; }
-
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg2); }
 ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
 .pnl-table-wrap { overflow-x: auto; }
-
 @media (max-width: 768px) {
   .hero-stats { grid-template-columns: 1fr 1fr; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
@@ -375,10 +211,10 @@ tr:hover td { background: rgba(255,255,255,0.015); }
     <div class="card-title"><span class="dot amber"></span>Phân bổ vốn khởi động</div>
     <table>
       <tr><th>Hạng mục</th><th class="right">Số tiền</th><th>Loại</th><th>Ghi chú</th></tr>
-      <tr><td>Hàng tồn kho ban đầu – Băng keo (3 loại)</td><td class="right mono">70.000.000</td><td><span class="badge blue">Vốn lưu động</span></td><td style="font-size:12px;color:var(--text2)">Nhập 30 ngày, quay vòng rồi tái nhập</td></tr>
-      <tr><td>Hàng tồn kho ban đầu – Giấy in nhiệt (2 size)</td><td class="right mono">50.000.000</td><td><span class="badge blue">Vốn lưu động</span></td><td style="font-size:12px;color:var(--text2)">80×100mm và 100×150mm ưu tiên trước</td></tr>
+      <tr><td>Hàng tồn kho ban đầu – Băng keo</td><td class="right mono">70.000.000</td><td><span class="badge blue">Vốn lưu động</span></td><td style="font-size:12px;color:var(--text2)">Nhập 30 ngày, quay vòng rồi tái nhập</td></tr>
+      <tr><td>Hàng tồn kho ban đầu – Giấy in nhiệt</td><td class="right mono">50.000.000</td><td><span class="badge blue">Vốn lưu động</span></td><td style="font-size:12px;color:var(--text2)">80×100mm và 100×150mm ưu tiên trước</td></tr>
       <tr><td>Thuê kho 400-600m2 (6 tháng)</td><td class="right mono">180.000.000</td><td><span class="badge amber">Chi phí cố định</span></td><td style="font-size:12px;color:var(--text2)">30tr × 6 tháng (giá 25–40tr/tháng)</td></tr>
-      <tr><td>Thiết bị kho (pallet, camera, cân, máy in nhiệt...)</td><td class="right mono">8.000.000</td><td><span class="badge amber">1 lần</span></td><td style="font-size:12px;color:var(--text2)">Dự kiến 6tr - 10tr</td></tr>
+      <tr><td>Thiết bị kho (pallet, camera, v.v)</td><td class="right mono">8.000.000</td><td><span class="badge amber">1 lần</span></td><td style="font-size:12px;color:var(--text2)">Dự kiến 6tr - 10tr</td></tr>
       <tr><td>Đăng ký kinh doanh + phần mềm OMS</td><td class="right mono">3.000.000</td><td><span class="badge amber">1 lần</span></td><td style="font-size:12px;color:var(--text2)">Dự kiến 2tr - 4tr</td></tr>
       <tr><td>Dự phòng phát sinh (~10%)</td><td class="right mono">31.000.000</td><td><span class="badge">Buffer</span></td><td style="font-size:12px;color:var(--text2)">Không dùng nếu mọi thứ theo kế hoạch</td></tr>
       <tr class="tr-total"><td><strong>TỔNG VỐN CẦN</strong></td><td class="right mono"><strong style="color:var(--accent)">342.000.000</strong></td><td><span class="badge green">✓ Khả thi</span></td><td style="font-size:12px;color:var(--text2)">Dành nguồn lực để scale sớm</td></tr>
@@ -395,16 +231,16 @@ tr:hover td { background: rgba(255,255,255,0.015); }
 
     <div style="display: flex; gap: 24px; margin-bottom: 16px; font-size: 13px; font-weight: 500; flex-wrap: wrap;">
       <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--blue);"></span>
+        Giá bán cần thiết
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px;">
         <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--accent);"></span>
-        Lợi nhuận thực tế (đạt mục tiêu)
+        LN thực tế (Đạt mục tiêu)
       </div>
       <div style="display: flex; align-items: center; gap: 8px;">
         <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--red);"></span>
-        Lợi nhuận thực tế (thiếu)
-      </div>
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--blue);"></span>
-        Giá bán cần thiết để đạt mục tiêu
+        LN thực tế (Chưa đạt)
       </div>
     </div>
 
@@ -433,12 +269,12 @@ tr:hover td { background: rgba(255,255,255,0.015); }
       <div style="padding:16px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.2);border-radius:8px">
         <div style="font-family:var(--mono);font-size:10px;color:var(--accent);font-weight:600;letter-spacing:0.1em;margin-bottom:6px">T3–T5 · GROWTH</div>
         <div style="font-weight:600;margin-bottom:6px">Chứng minh</div>
-        <div style="font-size:12px;color:var(--text2)">Shopee + Zalo OA. Hợp đồng định kỳ đầu tiên. Tuyển nhân viên đầu tiên.</div>
+        <div style="font-size:12px;color:var(--text2)">Shopee + Zalo OA. Hợp đồng định kỳ đầu tiên. Tuyển nhân viên.</div>
       </div>
       <div style="padding:16px;background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);border-radius:8px">
         <div style="font-family:var(--mono);font-size:10px;color:var(--amber);font-weight:600;letter-spacing:0.1em;margin-bottom:6px">T6–T9 · SCALE</div>
         <div style="font-weight:600;margin-bottom:6px">Mở rộng</div>
-        <div style="font-size:12px;color:var(--text2)">Scale kênh hiệu quả, Băng keo hàng dễ vỡ, loyalty program.</div>
+        <div style="font-size:12px;color:var(--text2)">Scale kênh hiệu quả, Băng keo dễ vỡ, loyalty program.</div>
       </div>
       <div style="padding:16px;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.2);border-radius:8px">
         <div style="font-family:var(--mono);font-size:10px;color:var(--purple);font-weight:600;letter-spacing:0.1em;margin-bottom:6px">T10–T12 · LOCK</div>
@@ -461,31 +297,21 @@ tr:hover td { background: rgba(255,255,255,0.015); }
 <div class="container">
   <div class="grid-2" style="margin-bottom:16px">
     <div class="card">
-      <div class="card-title"><span class="dot blue"></span>Danh sách thiết bị kho – ưu tiên</div>
+      <div class="card-title"><span class="dot blue"></span>Danh sách thiết bị kho</div>
       <div style="margin-bottom:12px">
-        <div style="font-family:var(--mono);font-size:10px;color:var(--accent);font-weight:600;letter-spacing:0.1em;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)">▶ THIẾT YẾU – Mua trước ngày 1</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--accent);font-weight:600;letter-spacing:0.1em;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)">▶ THIẾT YẾU</div>
         <div class="wh-grid" style="gap:8px">
-          <div class="wh-item"><div class="wh-num">1</div><div><div class="wh-name">Pallet (Nhựa/Gỗ)</div><div class="wh-detail">Ngăn hơi ẩm từ mặt đất lên thùng giấy</div><div class="wh-price">~1.500.000đ</div></div></div>
-          <div class="wh-item"><div class="wh-num">2</div><div><div class="wh-name">Cân điện tử 30kg</div><div class="wh-detail">Cân chính xác 0.1kg cho đơn gửi</div><div class="wh-price">~400.000đ</div></div></div>
-          <div class="wh-item"><div class="wh-num">3</div><div><div class="wh-name">Máy in nhiệt vận đơn</div><div class="wh-detail">Xprinter 235B hoặc 420B</div><div class="wh-price">~1.200.000đ</div></div></div>
-          <div class="wh-item"><div class="wh-num">4</div><div><div class="wh-name">Camera an ninh</div><div class="wh-detail">Giám sát kho, xử lý khiếu nại đóng gói</div><div class="wh-price">~600.000đ</div></div></div>
-          <div class="wh-item"><div class="wh-num">5</div><div><div class="wh-name">Bàn làm việc</div><div class="wh-detail">120×60cm, đóng gói + xử lý đơn</div><div class="wh-price">~600.000đ</div></div></div>
-          <div class="wh-item"><div class="wh-num">6</div><div><div class="wh-name">Thùng nhựa & Phụ kiện</div><div class="wh-detail">Phân loại đơn, dao, bút, kẹp</div><div class="wh-price">~500.000đ</div></div></div>
-        </div>
-        <div style="margin-top:10px;padding:10px;background:var(--bg3);border-radius:6px;font-family:var(--mono);font-size:12px;color:var(--accent)">Tổng thiết bị: ~4.800.000đ (Dự phòng đến 8-10tr)</div>
-      </div>
-      <div style="margin-bottom:12px">
-        <div style="font-family:var(--mono);font-size:10px;color:var(--blue);font-weight:600;letter-spacing:0.1em;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)">▶ CẦN TRONG T1–T2</div>
-        <div class="wh-grid" style="gap:8px">
-          <div class="wh-item"><div class="wh-num">7</div><div><div class="wh-name">Phần mềm OMS</div><div class="wh-detail">KiotViet hoặc MISA bán hàng</div><div class="wh-price">~250.000đ/tháng</div></div></div>
-          <div class="wh-item"><div class="wh-num">8</div><div><div class="wh-name">Quạt + đèn LED kho</div><div class="wh-detail">Cần thiết cho giấy nhiệt – tránh ẩm</div><div class="wh-price">~500.000đ</div></div></div>
+          <div class="wh-item"><div class="wh-num">1</div><div><div class="wh-name">Pallet (Nhựa/Gỗ)</div><div class="wh-price">~1.500.000đ</div></div></div>
+          <div class="wh-item"><div class="wh-num">2</div><div><div class="wh-name">Cân điện tử 30kg</div><div class="wh-price">~400.000đ</div></div></div>
+          <div class="wh-item"><div class="wh-num">3</div><div><div class="wh-name">Máy in nhiệt vận đơn</div><div class="wh-price">~1.200.000đ</div></div></div>
+          <div class="wh-item"><div class="wh-num">4</div><div><div class="wh-name">Camera an ninh</div><div class="wh-price">~600.000đ</div></div></div>
         </div>
       </div>
       <div>
-        <div style="font-family:var(--mono);font-size:10px;color:var(--amber);font-weight:600;letter-spacing:0.1em;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)">▶ KHI ĐỦ VOLUME (T5+)</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--amber);font-weight:600;letter-spacing:0.1em;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)">▶ CẦN SAU (T5+)</div>
         <div class="wh-grid" style="gap:8px">
-          <div class="wh-item"><div class="wh-num">9</div><div><div class="wh-name">Máy in mã vạch</div><div class="wh-detail">In nhãn SKU nội bộ, quản lý kho</div><div class="wh-price">~2.500.000đ</div></div></div>
-          <div class="wh-item"><div class="wh-num">10</div><div><div class="wh-name">Xe đẩy hàng</div><div class="wh-detail">Khi volume vượt 100 thùng/ngày</div><div class="wh-price">~800.000đ</div></div></div>
+          <div class="wh-item"><div class="wh-num">5</div><div><div class="wh-name">Máy in mã vạch</div><div class="wh-price">~2.500.000đ</div></div></div>
+          <div class="wh-item"><div class="wh-num">6</div><div><div class="wh-name">Xe đẩy hàng</div><div class="wh-price">~800.000đ</div></div></div>
         </div>
       </div>
     </div>
@@ -496,32 +322,22 @@ tr:hover td { background: rgba(255,255,255,0.015); }
         <div class="staff-item">
           <div class="staff-period">Tháng 1–2 · Solo</div>
           <div class="staff-role">Founder tự vận hành toàn bộ</div>
-          <div class="staff-desc">Telesales data 7K khách, nhận hàng, đóng gói, giao hàng, CSKH. Ưu điểm: tiết kiệm 18–20tr/tháng nhân sự trong giai đoạn thử nghiệm model.</div>
-          <div class="staff-cost">Chi phí nhân sự: 0đ</div>
+          <div class="staff-desc">Tiết kiệm 18–20tr/tháng nhân sự trong giai đoạn thử nghiệm model.</div>
         </div>
         <div class="staff-item">
           <div class="staff-period">Tháng 3 · +1 người</div>
           <div class="staff-role">Nhân viên kho / vận hành</div>
-          <div class="staff-desc">Nhận hàng, kiểm kho, đóng gói, xuất kho, giao hàng. Tuyển khi đơn vượt 50/ngày hoặc mình không xử lý kịp trong 8h.</div>
-          <div class="staff-cost">Lương: 8.000.000đ + thưởng KPI</div>
+          <div class="staff-desc">Tuyển khi đơn vượt 50/ngày. Lương 8tr + KPI.</div>
         </div>
         <div class="staff-item">
           <div class="staff-period">Tháng 5 · +1 người</div>
           <div class="staff-role">Nhân viên Sales / CSKH</div>
-          <div class="staff-desc">Telesales outbound, chăm sóc hợp đồng định kỳ, xử lý khiếu nại, upsell hàng dễ vỡ. Ưu tiên người có kinh nghiệm ngành vật tư hoặc fulfillment.</div>
-          <div class="staff-cost">Lương: 8.000.000đ + 1% doanh thu mới</div>
+          <div class="staff-desc">Telesales outbound, chăm sóc hợp đồng. Lương 8tr + 1% doanh thu mới.</div>
         </div>
         <div class="staff-item">
           <div class="staff-period">Tháng 7 · +1 người (part-time)</div>
           <div class="staff-role">Nhân viên Content / Digital</div>
-          <div class="staff-desc">Quản lý Shopee, đăng Zalo OA, chạy ads nhỏ, trả lời inbox. Có thể dùng freelancer hoặc sinh viên part-time 4h/ngày.</div>
-          <div class="staff-cost">Lương: 4.000.000–5.000.000đ/tháng</div>
-        </div>
-        <div class="staff-item">
-          <div class="staff-period">Tháng 10+ · Review</div>
-          <div class="staff-role">Đánh giá & tối ưu team</div>
-          <div class="staff-desc">Giữ người hiệu quả, thay người không đạt KPI. Nếu DT &gt;800tr/tháng, cân nhắc thêm 1 sales nữa. Bắt đầu xây SOP để giảm phụ thuộc vào Founder.</div>
-          <div class="staff-cost">Chi phí nhân sự T10–T12: ~22–25tr/tháng</div>
+          <div class="staff-desc">Quản lý Shopee, Zalo OA. Lương 4-5tr.</div>
         </div>
       </div>
     </div>
@@ -531,43 +347,38 @@ tr:hover td { background: rgba(255,255,255,0.015); }
     <div class="card-title"><span class="dot green"></span>Quy trình vận hành hàng ngày</div>
     <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
       <div style="padding:16px;background:var(--bg3);border-radius:8px;border-top:3px solid var(--blue)">
-        <div style="font-family:var(--mono);font-size:10px;color:var(--blue);font-weight:600;margin-bottom:8px;letter-spacing:0.08em">7:30 – NHẬN ĐƠN</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--blue);font-weight:600;margin-bottom:8px">7:30 – NHẬN ĐƠN</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:4px">
-          <li style="font-size:12px;color:var(--text2)">Check đơn mới trên OMS</li>
+          <li style="font-size:12px;color:var(--text2)">Check đơn trên OMS</li>
           <li style="font-size:12px;color:var(--text2)">In vận đơn hàng loạt</li>
-          <li style="font-size:12px;color:var(--text2)">Sắp xếp theo đơn vị vận chuyển</li>
         </ul>
       </div>
       <div style="padding:16px;background:var(--bg3);border-radius:8px;border-top:3px solid var(--teal)">
-        <div style="font-family:var(--mono);font-size:10px;color:var(--teal);font-weight:600;margin-bottom:8px;letter-spacing:0.08em">8:00 – LẤY HÀNG</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--teal);font-weight:600;margin-bottom:8px">8:00 – LẤY HÀNG</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:4px">
-          <li style="font-size:12px;color:var(--text2)">Lấy hàng từ kệ theo đơn</li>
-          <li style="font-size:12px;color:var(--text2)">Kiểm tra số lượng, chất lượng</li>
-          <li style="font-size:12px;color:var(--text2)">Ghi nhận tồn kho OMS</li>
+          <li style="font-size:12px;color:var(--text2)">Lấy hàng từ kệ</li>
+          <li style="font-size:12px;color:var(--text2)">Ghi nhận tồn kho</li>
         </ul>
       </div>
       <div style="padding:16px;background:var(--bg3);border-radius:8px;border-top:3px solid var(--accent)">
-        <div style="font-family:var(--mono);font-size:10px;color:var(--accent);font-weight:600;margin-bottom:8px;letter-spacing:0.08em">9:00 – ĐÓNG GÓI</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--accent);font-weight:600;margin-bottom:8px">9:00 – ĐÓNG GÓI</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:4px">
-          <li style="font-size:12px;color:var(--text2)">Đóng gói theo tiêu chuẩn</li>
-          <li style="font-size:12px;color:var(--text2)">Dán vận đơn, kiểm lại</li>
-          <li style="font-size:12px;color:var(--text2)">Sắp xếp khu chờ shipper</li>
+          <li style="font-size:12px;color:var(--text2)">Đóng gói tiêu chuẩn</li>
+          <li style="font-size:12px;color:var(--text2)">Dán vận đơn</li>
         </ul>
       </div>
       <div style="padding:16px;background:var(--bg3);border-radius:8px;border-top:3px solid var(--amber)">
-        <div style="font-family:var(--mono);font-size:10px;color:var(--amber);font-weight:600;margin-bottom:8px;letter-spacing:0.08em">10:00 – SHIPPER</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--amber);font-weight:600;margin-bottom:8px">10:00 – SHIPPER</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:4px">
-          <li style="font-size:12px;color:var(--text2)">GHN / GHTK đến lấy</li>
-          <li style="font-size:12px;color:var(--text2)">Đối chiếu số lượng</li>
+          <li style="font-size:12px;color:var(--text2)">Giao hàng cho ĐVVC</li>
           <li style="font-size:12px;color:var(--text2)">Cập nhật trạng thái</li>
         </ul>
       </div>
       <div style="padding:16px;background:var(--bg3);border-radius:8px;border-top:3px solid var(--purple)">
-        <div style="font-family:var(--mono);font-size:10px;color:var(--purple);font-weight:600;margin-bottom:8px;letter-spacing:0.08em">14:00 – SALES</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--purple);font-weight:600;margin-bottom:8px">14:00 – SALES</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:4px">
           <li style="font-size:12px;color:var(--text2)">Telesales 20–30 cuộc</li>
-          <li style="font-size:12px;color:var(--text2)">Check Zalo, Shopee inbox</li>
-          <li style="font-size:12px;color:var(--text2)">Review đơn ngày, báo cáo</li>
+          <li style="font-size:12px;color:var(--text2)">Review đơn ngày</li>
         </ul>
       </div>
     </div>
@@ -577,27 +388,23 @@ tr:hover td { background: rgba(255,255,255,0.015); }
 
 <div id="tab-pnl" class="section">
 <div class="container">
-
   <div class="scenario-wrap">
     <div class="scenario-card" id="sc-conservative" onclick="setScenario('conservative')">
       <div class="scenario-name" style="color:var(--red)">📉 Thận trọng</div>
-      <div class="scenario-desc">Tốc độ tăng chậm, gặp khó khăn ban đầu</div>
+      <div class="scenario-desc">Tốc độ tăng chậm, gặp khó khăn</div>
       <div class="scenario-stat"><span>Tăng trưởng/tháng</span><span class="scenario-stat-val" style="color:var(--red)">+12%</span></div>
-      <div class="scenario-stat"><span>Margin gộp</span><span class="scenario-stat-val">25%</span></div>
       <div class="scenario-stat"><span>DT T12</span><span class="scenario-stat-val">650 tr</span></div>
     </div>
     <div class="scenario-card active" id="sc-base" onclick="setScenario('base')">
       <div class="scenario-name" style="color:var(--accent)">📊 Cơ sở</div>
       <div class="scenario-desc">Tăng trưởng ổn định, đúng kế hoạch</div>
       <div class="scenario-stat"><span>Tăng trưởng/tháng</span><span class="scenario-stat-val" style="color:var(--accent)">+18%</span></div>
-      <div class="scenario-stat"><span>Margin gộp</span><span class="scenario-stat-val">29%</span></div>
       <div class="scenario-stat"><span>DT T12</span><span class="scenario-stat-val">1.000 tr</span></div>
     </div>
     <div class="scenario-card" id="sc-optimistic" onclick="setScenario('optimistic')">
       <div class="scenario-name" style="color:var(--blue)">🚀 Lạc quan</div>
-      <div class="scenario-desc">Viral, data 7K convert tốt, bán sớm hàng dễ vỡ</div>
+      <div class="scenario-desc">Viral, bán sớm hàng dễ vỡ</div>
       <div class="scenario-stat"><span>Tăng trưởng/tháng</span><span class="scenario-stat-val" style="color:var(--blue)">+25%</span></div>
-      <div class="scenario-stat"><span>Margin gộp</span><span class="scenario-stat-val">32%</span></div>
       <div class="scenario-stat"><span>DT T12</span><span class="scenario-stat-val">1.500 tr</span></div>
     </div>
   </div>
@@ -606,80 +413,56 @@ tr:hover td { background: rgba(255,255,255,0.015); }
     <div class="pnl-header">
       <div>
         <h3>Bảng P&L – Điều chỉnh thông số</h3>
-        <p>Thay đổi số liệu bên dưới để xem P&L cập nhật tức thì theo 12 tháng</p>
+        <p>Thay đổi số liệu bên dưới để xem P&L cập nhật tức thì</p>
       </div>
       <button class="reset-btn" onclick="resetToBase()">↺ Reset về mặc định</button>
     </div>
     <div class="pnl-body">
-      <div class="pnl-section-title">Thông số doanh thu</div>
+      <div class="pnl-section-title">Thông số cấu hình</div>
       <div class="pnl-grid">
         <div class="input-group">
           <label class="input-label">DT tháng 1 (triệu đ)</label>
           <input class="input-field" type="number" id="rev_t1" value="65" oninput="calcPnl()">
-          <div class="input-hint">Khởi điểm từ data 7K</div>
         </div>
         <div class="input-group">
           <label class="input-label">Tăng trưởng/tháng (%)</label>
           <input class="input-field" type="number" id="growth" value="18" oninput="calcPnl()">
-          <div class="input-hint">Trung bình 12 tháng</div>
         </div>
         <div class="input-group">
           <label class="input-label">Cao điểm T11 (hệ số ×)</label>
           <input class="input-field" type="number" id="peak" value="1.4" step="0.1" oninput="calcPnl()">
-          <div class="input-hint">11/11, Black Friday, Tết</div>
         </div>
-      </div>
-
-      <div class="pnl-section-title">Thông số margin & giá vốn</div>
-      <div class="pnl-grid">
         <div class="input-group">
           <label class="input-label">Margin gộp (%)</label>
           <input class="input-field" type="number" id="margin" value="29" oninput="calcPnl()">
-          <div class="input-hint">Sau giá nhập hàng</div>
-        </div>
-        <div class="input-group">
-          <label class="input-label">% DT: Băng keo</label>
-          <input class="input-field" type="number" id="pct_tape" value="55" oninput="calcPnl()">
-          <div class="input-hint">Còn lại = Giấy in nhiệt</div>
         </div>
         <div class="input-group">
           <label class="input-label">Tỷ lệ đổi trả (%)</label>
           <input class="input-field" type="number" id="return_rate" value="1.5" step="0.5" oninput="calcPnl()">
-          <div class="input-hint">Mục tiêu &lt;2%</div>
         </div>
-      </div>
-
-      <div class="pnl-section-title">Chi phí cố định hàng tháng (triệu đ)</div>
-      <div class="pnl-grid">
         <div class="input-group">
           <label class="input-label">Thuê kho (triệu đ/tháng)</label>
           <input class="input-field" type="number" id="rent" value="30" oninput="calcPnl()">
-          <div class="input-hint">Tính phí theo tháng (30tr)</div>
         </div>
         <div class="input-group">
-          <label class="input-label">Nhân sự tháng 3+ (triệu đ)</label>
+          <label class="input-label">Nhân sự T3+ (triệu đ)</label>
           <input class="input-field" type="number" id="staff" value="8" oninput="calcPnl()">
-          <div class="input-hint">Người đầu tiên từ T3</div>
         </div>
         <div class="input-group">
-          <label class="input-label">Marketing / Ads (triệu đ)</label>
+          <label class="input-label">MKT/Ads (triệu đ)</label>
           <input class="input-field" type="number" id="mkt" value="3" oninput="calcPnl()">
-          <div class="input-hint">T1–T2: 0, T3+: tăng dần</div>
         </div>
         <div class="input-group">
-          <label class="input-label">Vận chuyển / logistics (%DT)</label>
+          <label class="input-label">Vận chuyển (%DT)</label>
           <input class="input-field" type="number" id="ship_pct" value="3" step="0.5" oninput="calcPnl()">
-          <div class="input-hint">GHN, GHTK, J&T</div>
         </div>
         <div class="input-group">
-          <label class="input-label">Điện, internet, phần mềm</label>
+          <label class="input-label">Điện, phần mềm, v.v</label>
           <input class="input-field" type="number" id="ops" value="2" oninput="calcPnl()">
-          <div class="input-hint">Chi phí vận hành cơ bản</div>
         </div>
         <div class="input-group">
           <label class="input-label">Phát sinh / dự phòng</label>
           <input class="input-field" type="number" id="misc" value="2" oninput="calcPnl()">
-          <div class="input-hint">Luôn giữ buffer</div>
         </div>
       </div>
 
@@ -695,184 +478,35 @@ tr:hover td { background: rgba(255,255,255,0.015); }
 </div>
 
 <script>
-// ─── UTILS ───
-// Tự động tính lại Margin khi input thay đổi
-function updateMargin(el) {
-  const tr = el.closest('tr');
-  const inputs = tr.querySelectorAll('.table-input');
-  if (inputs.length === 2) {
-    const cost = parseFloat(inputs[0].value) || 0;
-    const price = parseFloat(inputs[1].value) || 0;
-    const badge = tr.querySelector('.margin-badge');
-    if (price > 0 && badge) {
-      const margin = ((price - cost) / price * 100).toFixed(0);
-      badge.textContent = margin + '%';
-    }
-  }
+// ─── NAV ───
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  event.target.classList.add('active');
 }
 
 // ─── TIMELINE DATA ───
 const months = [
-  {
-    n:1, phase:'phase-1', phaseLabel:'Setup · Nền móng',
-    title:'Thiết lập nền tảng & khai thác data',
-    tasks:[
-      'Đăng ký kinh doanh, mở tài khoản ngân hàng doanh nghiệp',
-      'Thuê kho 400-600m2 (thanh toán 6 tháng), setup pallet, máy in nhiệt, cân điện tử',
-      'Đàm phán NCC: 2 NCC băng keo dự phòng, 2 NCC giấy in nhiệt',
-      'Nhập hàng pilot: 2 SKU băng keo + 2 SKU giấy in nhiệt (~70–80tr)',
-      'Telesales 400 khách Tier A từ data 7K (kho fulfillment, seller lớn)',
-      'Zalo OA go-live, gửi catalogue PDF chuyên nghiệp cho 200 KH',
-      'Liên hệ quản lý kho Allship – đề xuất trial cung cấp vật tư nội bộ',
-    ],
-    kpis:[['DT','55–75tr'],['Đơn/ngày','15–25'],['KH Allship','3–5 thử'],['Tồn kho','30 ngày']]
-  },
-  {
-    n:2, phase:'phase-1', phaseLabel:'Setup · Nền móng',
-    title:'Vận hành thực tế & tối ưu quy trình',
-    tasks:[
-      'Giao đơn đầu tiên – ghi lại mọi vấn đề phát sinh để cải thiện',
-      'Telesales thêm 500 KH Tier B (SME, hộ kinh doanh) từ data',
-      'Ký hợp đồng cung cấp định kỳ đầu tiên với 2–3 kho Allship',
-      'Xây SOP: quy trình nhận hàng, đóng gói, xuất kho, kiểm kho',
-      'Thiết lập cảnh báo tồn kho tối thiểu trên KiotViet cho từng SKU',
-      'Thu thập feedback KH đầu tiên – điều chỉnh sản phẩm/giá nếu cần',
-    ],
-    kpis:[['DT','110–140tr'],['Đơn/ngày','35–50'],['Hợp đồng','3 Allship'],['Hoà vốn','Tháng này']]
-  },
-  {
-    n:3, phase:'phase-2', phaseLabel:'Growth · Chứng minh',
-    title:'Tuyển người đầu tiên & mở kênh Shopee',
-    tasks:[
-      'Tuyển nhân viên kho/vận hành: 8tr/tháng + KPI thưởng đơn đúng hạn',
-      'Shopee Mall go-live: upload sản phẩm, tối ưu title/ảnh/mô tả',
-      'Chạy Shopee Ads thử nghiệm: 2–3tr/tháng cho 2 SKU chủ lực',
-      'Mở rộng Allship: liên hệ thêm 5–8 kho khác trong hệ thống',
-      'Telesales kênh ngoài: kho 3PL độc lập, SME có nhu cầu lớn',
-      'Bắt đầu đo ROAS từng kênh – tập trung double vào kênh tốt nhất',
-    ],
-    kpis:[['DT','190–230tr'],['Shopee','go-live'],['Allship','6–8 kho'],['Team','2 người']]
-  },
-  {
-    n:4, phase:'phase-2', phaseLabel:'Growth · Chứng minh',
-    title:'Scale Shopee & ra mắt Băng keo hàng dễ vỡ',
-    tasks:[
-      'Scale Shopee Ads kênh hiệu quả (ROAS ≥ 3x), tăng lên 5–7tr/tháng',
-      'Ra mắt SKU Băng keo hàng dễ vỡ – tiếp cận 10–15 KH có tiềm năng',
-      'Đề xuất hợp đồng 3 tháng cho top 5 KH Allship: giảm 3%, đổi lấy cam kết',
-      'Zalo OA: gửi blast báo giá/deal cho 2.000 KH trong list data',
-      'Đàm phán lại giá NCC lần 1: volume 3 tháng = leverage để ép giá thêm 3–5%',
-    ],
-    kpis:[['DT','280–340tr'],['Hàng DV','10 KH'],['Hợp đồng 3T','5 KH'],['ROAS','≥3x']]
-  },
-  {
-    n:5, phase:'phase-2', phaseLabel:'Growth · Chứng minh',
-    title:'Tuyển sales & mở kênh Zalo OA mạnh hơn',
-    tasks:[
-      'Tuyển nhân viên Sales/CSKH: 8tr + 1% DT mới từ khách họ khai thác',
-      'Zalo OA: xây nội dung định kỳ (tips đóng gói, giá sỉ, flash deal)',
-      'Loyalty program đơn giản: mua đủ 10 đơn → giảm 2% đơn tiếp theo',
-      'Review toàn danh mục: dừng hoặc giảm tồn kho SKU vòng quay chậm',
-      'Tối ưu layout kho 400-600m2 để tăng sức chứa khi lượng hàng về nhiều hơn',
-    ],
-    kpis:[['DT','370–430tr'],['Team','3 người'],['Loyalty','launch'],['KH active','80+']]
-  },
-  {
-    n:6, phase:'phase-3', phaseLabel:'Scale · Mở rộng',
-    title:'Đánh giá nửa năm & tối ưu toàn diện',
-    tasks:[
-      'Review P&L 6 tháng: SKU nào sinh lời nhất? Kênh nào ROAS cao nhất?',
-      'Tập trung 80% nguồn lực vào top 20% SKU/kênh hiệu quả nhất',
-      'Đề xuất hợp đồng 6 tháng với top Allship khách hàng',
-      'TikTok Shop thử nghiệm: 3–5 video UGC về tips đóng gói hàng cho seller',
-      'Mục tiêu: Allship ≤ 50% DT – kênh ngoài phải bằng hoặc vượt qua',
-    ],
-    kpis:[['DT','470–530tr'],['Recurring','55%+'],['EBITDA','16%'],['Kênh ngoài','≥50%DT']]
-  },
-  {
-    n:7, phase:'phase-3', phaseLabel:'Scale · Mở rộng',
-    title:'TikTok Shop & referral program',
-    tasks:[
-      'TikTok Shop scale nếu video T6 hiệu quả: tăng tần suất content',
-      'Referral: KH giới thiệu KH mới → cả hai được giảm 2% đơn tiếp',
-      'Tuyển part-time Content/Ads: sinh viên 4h/ngày, 4–5tr/tháng',
-      'Chuẩn bị tồn kho dự phòng tăng lên 20–25 ngày cho Q4 peak',
-      'Review nhân sự: ai đạt KPI? Ai cần cải thiện?',
-    ],
-    kpis:[['DT','530–600tr'],['Referral','5% đơn mới'],['Team','3.5 người'],['TikTok','go-scale']]
-  },
-  {
-    n:8, phase:'phase-3', phaseLabel:'Scale · Mở rộng',
-    title:'Chuẩn bị Q4 & tối ưu kho vận',
-    tasks:[
-      'Nhập hàng dự trữ Q4: tăng 50–60% tồn kho so với bình thường',
-      'Đàm phán lại NCC lần 2: 8 tháng volume = giảm thêm 3–5%',
-      'Google Ads thử nghiệm: "mua băng keo sỉ TPHCM", ngân sách 3–5tr/tháng',
-      'Xây checklist chuẩn bị 11/11: quy trình, nhân lực tạm thời, vận chuyển',
-      'Lên phương án setup thêm kệ pallet cho kho 400-600m2',
-    ],
-    kpis:[['DT','590–680tr'],['Tồn kho','25–30 ngày'],['NCC giá','tốt hơn 5%'],['Q4 ready','']]
-  },
-  {
-    n:9, phase:'phase-3', phaseLabel:'Scale · Mở rộng',
-    title:'Hệ thống hoá quy trình & giảm phụ thuộc Founder',
-    tasks:[
-      'Viết SOP đầy đủ: nhân viên mới học trong 3 ngày có thể tự chạy',
-      'Thiết lập đặt hàng tự động: Zalo bot hoặc Google Form đơn giản',
-      'Băng keo hàng dễ vỡ: mở rộng thêm 5–8 KH lớn, ký hợp đồng 6 tháng',
-      'Tuyển thêm 1 nhân viên kho nếu đơn vượt 150/ngày',
-      'Bắt đầu lên kế hoạch năm 2: mở rộng địa lý? Thêm SKU mới?',
-    ],
-    kpis:[['DT','660–750tr'],['SOP','hoàn chỉnh'],['KH Mới','15+'],['Tự chạy','được']]
-  },
-  {
-    n:10, phase:'phase-4', phaseLabel:'Lock · Tối ưu',
-    title:'Hợp đồng năm & khoá khách hàng dài hạn',
-    tasks:[
-      'Tiếp cận top 10 KH: đề xuất hợp đồng 1 năm, giảm 5%, giao tận nơi',
-      'Đàm phán NCC: hợp đồng năm 2026, cam kết volume đổi giá tốt nhất',
-      'Subscription đơn giản: đăng ký nhận hàng định kỳ hàng tháng, auto-charge',
-      'Review toàn bộ chi phí: cắt giảm 10–15% chi phí không cần thiết',
-    ],
-    kpis:[['DT','730–830tr'],['Hợp đồng năm','5+ KH'],['Recurring','65%+'],['Margin','tăng 2%']]
-  },
-  {
-    n:11, phase:'phase-4', phaseLabel:'Lock · Tối ưu',
-    title:'Cao điểm 11/11 & Black Friday – tháng doanh thu đỉnh',
-    tasks:[
-      '11/11 campaign: flash deal 5–8% cho đơn lớn, thông báo trước 1 tuần',
-      'Black Friday: combo tiết kiệm băng keo + giấy in nhiệt (giảm 7–10%)',
-      'Hợp tác với đơn vị vận chuyển: đẩy nhanh giao hàng mùa cao điểm',
-      'Đảm bảo tồn kho KHÔNG đứt hàng – đây là tháng quan trọng nhất',
-      'Ghi nhận toàn bộ data: KH nào mua nhiều nhất? Để ưu tiên năm sau',
-    ],
-    kpis:[['DT','1.0–1.3 tỷ'],['Tăng MoM','40–50%'],['Tồn kho','không đứt'],['Top KH','ghi nhận']]
-  },
-  {
-    n:12, phase:'phase-4', phaseLabel:'Lock · Tối ưu',
-    title:'Tổng kết năm 1 & lên kế hoạch năm 2',
-    tasks:[
-      'Review P&L toàn năm: SKU nào, kênh nào, KH nào sinh lời nhất?',
-      'Gia hạn & nâng cấp hợp đồng Allship – đàm phán điều khoản tốt hơn',
-      'Chốt hợp đồng 1 năm với top 10 KH ngoài Allship',
-      'Lên kế hoạch năm 2: thêm SKU mới (túi PE/màng pallet)? Mở thêm địa điểm?',
-      'Tổng kết nhân sự: thưởng cuối năm, điều chỉnh mức lương, KPI năm sau',
-      'Họp trình kết quả lên sếp + đề xuất ngân sách mở rộng năm 2',
-    ],
-    kpis:[['DT','900tr–1.1 tỷ'],['DT Cả năm','≥7 tỷ'],['Lợi nhuận ròng','≥16%'],['Kế hoạch 2026','done']]
-  },
+  { n:1, phase:'phase-1', phaseLabel:'Setup', title:'Thiết lập nền tảng & data', tasks:['Thuê kho 400-600m2', 'Nhập hàng pilot', 'Telesales 400 KH Tier A'], kpis:[['DT','55–75tr']] },
+  { n:2, phase:'phase-1', phaseLabel:'Setup', title:'Vận hành thực tế', tasks:['Giao đơn đầu tiên', 'Telesales 500 KH Tier B', 'Ký hợp đồng định kỳ Allship'], kpis:[['Hoà vốn','Tháng này']] },
+  { n:3, phase:'phase-2', phaseLabel:'Growth', title:'Tuyển người & Shopee', tasks:['Tuyển nhân viên kho', 'Shopee Mall go-live', 'Chạy Shopee Ads thử nghiệm'], kpis:[['DT','190–230tr']] },
+  { n:4, phase:'phase-2', phaseLabel:'Growth', title:'Scale Shopee & SKU dễ vỡ', tasks:['Scale Shopee Ads', 'Ra mắt Băng keo hàng dễ vỡ', 'Đề xuất hợp đồng 3 tháng'], kpis:[['ROAS','≥3x']] },
+  { n:5, phase:'phase-2', phaseLabel:'Growth', title:'Tuyển sales & Zalo OA', tasks:['Tuyển Sales/CSKH', 'Zalo OA', 'Loyalty program'], kpis:[['KH active','80+']] },
+  { n:6, phase:'phase-3', phaseLabel:'Scale', title:'Đánh giá & tối ưu', tasks:['Review P&L 6 tháng', 'TikTok Shop thử nghiệm'], kpis:[['EBITDA','16%']] },
+  { n:7, phase:'phase-3', phaseLabel:'Scale', title:'TikTok Shop & referral', tasks:['TikTok Shop scale', 'Referral program', 'Tuyển part-time Content'], kpis:[['Referral','5%']] },
+  { n:8, phase:'phase-3', phaseLabel:'Scale', title:'Chuẩn bị Q4', tasks:['Nhập hàng dự trữ Q4', 'Google Ads thử nghiệm'], kpis:[['Tồn kho','25–30 ngày']] },
+  { n:9, phase:'phase-3', phaseLabel:'Scale', title:'Hệ thống hoá quy trình', tasks:['Viết SOP', 'Thiết lập đặt hàng tự động'], kpis:[['SOP','hoàn chỉnh']] },
+  { n:10, phase:'phase-4', phaseLabel:'Lock', title:'Hợp đồng năm', tasks:['Tiếp cận top 10 KH', 'Đàm phán NCC năm sau', 'Subscription model'], kpis:[['Recurring','65%+']] },
+  { n:11, phase:'phase-4', phaseLabel:'Lock', title:'Cao điểm 11/11 & Black Friday', tasks:['11/11 campaign', 'Đảm bảo tồn kho KHÔNG đứt'], kpis:[['DT','1.0–1.3 tỷ']] },
+  { n:12, phase:'phase-4', phaseLabel:'Lock', title:'Tổng kết năm 1', tasks:['Review P&L toàn năm', 'Lên kế hoạch năm 2'], kpis:[['DT Cả năm','≥7 tỷ']] },
 ];
 
 function renderTimeline() {
   const container = document.getElementById('timeline-months');
   container.innerHTML = months.map(m => `
     <div class="timeline-month-inner">
-      <div class="t-month">
-        <div class="t-month-num ${m.n<=2?'active':''}" style="color:${
-          m.phase==='phase-1'?'var(--blue)':m.phase==='phase-2'?'var(--accent)':m.phase==='phase-3'?'var(--amber)':'var(--purple)'
-        }">${String(m.n).padStart(2,'0')}</div>
-        <div class="t-month-label">Tháng</div>
-      </div>
+      <div class="t-month"><div class="t-month-num ${m.n<=2?'active':''}">${String(m.n).padStart(2,'0')}</div><div class="t-month-label">Tháng</div></div>
       <div class="t-content">
         <div class="t-phase ${m.phase}">${m.phaseLabel}</div>
         <div class="t-title">${m.title}</div>
@@ -888,114 +522,61 @@ function getVal(id) { return parseFloat(document.getElementById(id).value) || 0;
 function fmt(n) { return Math.round(n).toLocaleString('vi-VN'); }
 
 function calcPnl() {
-  const rev1    = getVal('rev_t1') * 1e6;
-  const growth  = getVal('growth') / 100;
-  const peak    = getVal('peak');
-  const margin  = getVal('margin') / 100;
-  const retRate = getVal('return_rate') / 100;
-  const rent    = getVal('rent') * 1e6;
-  const staffM  = getVal('staff') * 1e6;
-  const mkt     = getVal('mkt') * 1e6;
-  const shipPct = getVal('ship_pct') / 100;
-  const ops     = getVal('ops') * 1e6;
-  const misc    = getVal('misc') * 1e6;
+  const rev1 = getVal('rev_t1') * 1e6, growth = getVal('growth') / 100, peak = getVal('peak');
+  const margin = getVal('margin') / 100, retRate = getVal('return_rate') / 100;
+  const rent = getVal('rent') * 1e6, staffM = getVal('staff') * 1e6, mkt = getVal('mkt') * 1e6;
+  const shipPct = getVal('ship_pct') / 100, ops = getVal('ops') * 1e6, misc = getVal('misc') * 1e6;
 
   const revs = [], cogs = [], gross = [], shipping = [], staffCost = [], mktCost = [], rentCost = [], opsCost = [], ebitda = [];
-  let cumRev = 0, cumEbitda = 0;
-
+  
   for (let i = 0; i < 12; i++) {
     let r = rev1 * Math.pow(1 + growth, i);
-    if (i === 10) r *= peak;   // T11
-    if (i === 11) r *= 0.88;   // T12 normalise
-
-    const ret = r * retRate;
-    const netRev = r - ret;
-    const cog = netRev * (1 - margin);
-    const gros = netRev - cog;
-    const ship = netRev * shipPct;
-    const sC = i >= 2 ? staffM * (i >= 4 ? (i >= 6 ? 1.4 : 1.2) : 1) : 0; // growing staff
-    const mC = i >= 2 ? mkt * (1 + i * 0.08) : mkt * 0.3;
-    const rC = rent; // Fixed rent for 400-600m2 since beginning
-    const oC = ops + misc;
+    if (i === 10) r *= peak; if (i === 11) r *= 0.88;
+    const ret = r * retRate, netRev = r - ret, cog = netRev * (1 - margin), gros = netRev - cog;
+    const ship = netRev * shipPct, sC = i >= 2 ? staffM * (i >= 4 ? (i >= 6 ? 1.4 : 1.2) : 1) : 0;
+    const mC = i >= 2 ? mkt * (1 + i * 0.08) : mkt * 0.3, rC = rent, oC = ops + misc;
     const eb = gros - ship - sC - mC - rC - oC;
 
-    revs.push(netRev); cogs.push(cog); gross.push(gros);
-    shipping.push(ship); staffCost.push(sC); mktCost.push(mC);
-    rentCost.push(rC); opsCost.push(oC); ebitda.push(eb);
-    cumRev += netRev; cumEbitda += eb;
+    revs.push(netRev); cogs.push(cog); gross.push(gros); shipping.push(ship);
+    staffCost.push(sC); mktCost.push(mC); rentCost.push(rC); opsCost.push(oC); ebitda.push(eb);
   }
 
-  const headers = ['Chỉ số','T1','T2','T3','T4','T5','T6','T7','T8','T9','T10','T11','T12','Cả năm'];
+  const headers = ['Chỉ số','T1','T2','T3','T4','T5','T6','T7','T8','T9','T10','T11','T12','Năm'];
   const rows = [
-    { label:'Doanh thu thuần', vals: revs, cls:'pnl-row-revenue', fmt: v => (v/1e6).toFixed(0), sum: true },
-    { label:'↳ Giá vốn (COGS)', vals: cogs.map(v=>-v), cls:'pnl-row-sub', fmt: v => (v/1e6).toFixed(0), sum: true },
-    { label:'Lợi nhuận gộp', vals: gross, cls:'pnl-row-gross', fmt: v => (v/1e6).toFixed(0), sum: true },
-    { label:'↳ Margin %', vals: revs.map((r,i)=>gross[i]/r*100), cls:'pnl-row-sub', fmt: v => v.toFixed(1)+'%', isMargin: true },
-    { label:'Chi phí vận chuyển', vals: shipping.map(v=>-v), cls:'pnl-row-sub', fmt: v => (v/1e6).toFixed(0), sum: true },
-    { label:'Chi phí nhân sự', vals: staffCost.map(v=>-v), cls:'pnl-row-sub', fmt: v => (v/1e6).toFixed(0), sum: true },
-    { label:'Chi phí marketing', vals: mktCost.map(v=>-v), cls:'pnl-row-sub', fmt: v => (v/1e6).toFixed(0), sum: true },
-    { label:'Chi phí kho', vals: rentCost.map(v=>-v), cls:'pnl-row-sub', fmt: v => (v/1e6).toFixed(0), sum: true },
-    { label:'Vận hành + phát sinh', vals: Array.from({length:12},(_,i)=>-(ops+misc)), cls:'pnl-row-sub', fmt: v => (v/1e6).toFixed(0), sum: true },
-    { label:'EBITDA', vals: ebitda, cls:'pnl-row-ebitda', fmt: v => (v/1e6).toFixed(0), sum: true },
-    { label:'EBITDA Margin %', vals: revs.map((r,i)=>ebitda[i]/r*100), cls:'pnl-row-sub', fmt: v => v.toFixed(1)+'%', isMargin: true },
+    { label:'Doanh thu thuần', vals: revs, cls:'pnl-row-revenue', fmt: v=>(v/1e6).toFixed(0), sum: true },
+    { label:'↳ Giá vốn (COGS)', vals: cogs.map(v=>-v), cls:'pnl-row-sub', fmt: v=>(v/1e6).toFixed(0), sum: true },
+    { label:'Lợi nhuận gộp', vals: gross, cls:'pnl-row-gross', fmt: v=>(v/1e6).toFixed(0), sum: true },
+    { label:'Chi phí vận chuyển', vals: shipping.map(v=>-v), cls:'pnl-row-sub', fmt: v=>(v/1e6).toFixed(0), sum: true },
+    { label:'Chi phí nhân sự', vals: staffCost.map(v=>-v), cls:'pnl-row-sub', fmt: v=>(v/1e6).toFixed(0), sum: true },
+    { label:'Chi phí marketing', vals: mktCost.map(v=>-v), cls:'pnl-row-sub', fmt: v=>(v/1e6).toFixed(0), sum: true },
+    { label:'Chi phí kho', vals: rentCost.map(v=>-v), cls:'pnl-row-sub', fmt: v=>(v/1e6).toFixed(0), sum: true },
+    { label:'Vận hành + dự phòng', vals: Array.from({length:12},()=>-(ops+misc)), cls:'pnl-row-sub', fmt: v=>(v/1e6).toFixed(0), sum: true },
+    { label:'EBITDA', vals: ebitda, cls:'pnl-row-ebitda', fmt: v=>(v/1e6).toFixed(0), sum: true },
   ];
 
-  let html = `<div class="pnl-result-row pnl-row-header">`;
-  headers.forEach(h => html += `<div>${h}</div>`);
-  html += '</div>';
+  let html = `<div class="pnl-result-row pnl-row-header">` + headers.map(h => `<div>${h}</div>`).join('') + `</div>`;
 
   rows.forEach(row => {
-    html += `<div class="pnl-result-row ${row.cls}">`;
-    html += `<div style="text-align:left;font-family:var(--sans);font-size:12px">${row.label}</div>`;
-
+    html += `<div class="pnl-result-row ${row.cls}"><div style="text-align:left;font-family:var(--sans);font-size:12px">${row.label}</div>`;
     let yr = 0;
-    row.vals.forEach((v, i) => {
-      const actual = v;
-      const disp = row.isMargin ? row.fmt(Math.abs(actual)) : row.fmt(actual);
-      const color = row.isMargin ? '' : (actual >= 0 ? 'class="pnl-cell-pos"' : 'class="pnl-cell-neg"');
-      html += `<div ${actual < 0 && !row.isMargin ? 'class="pnl-cell-neg"' : (actual > 0 && !row.isMargin && row.cls !== 'pnl-row-sub' ? 'class="pnl-cell-pos"' : '')}>${disp}</div>`;
-      if (!row.isMargin && row.sum) yr += actual;
+    row.vals.forEach(v => {
+      html += `<div ${v<0?'class="pnl-cell-neg"':(v>0&&row.cls!=='pnl-row-sub'?'class="pnl-cell-pos"':'')}>${row.fmt(v)}</div>`;
+      yr += v;
     });
-
-    if (row.isMargin) {
-      const avgM = ebitda.reduce((a,b)=>a+b,0)/revs.reduce((a,b)=>a+b,0)*100;
-      const gmVal = gross.reduce((a,b)=>a+b,0)/revs.reduce((a,b)=>a+b,0)*100;
-      html += `<div class="pnl-cell-total">${(row.label.includes('EBITDA') ? avgM : gmVal).toFixed(1)}%</div>`;
-    } else {
-      html += `<div class="pnl-cell-total ${yr>=0?'pnl-cell-pos':'pnl-cell-neg'}">${row.fmt(yr)}</div>`;
-    }
-    html += '</div>';
+    html += `<div class="pnl-cell-total ${yr>=0?'pnl-cell-pos':'pnl-cell-neg'}">${row.fmt(yr)}</div></div>`;
   });
 
   document.getElementById('pnl-table').innerHTML = html;
 
-  // Summary
-  const totalRev = revs.reduce((a,b)=>a+b,0);
-  const totalGross = gross.reduce((a,b)=>a+b,0);
-  const totalEbitda = ebitda.reduce((a,b)=>a+b,0);
+  const totalRev = revs.reduce((a,b)=>a+b,0), totalGross = gross.reduce((a,b)=>a+b,0), totalEbitda = ebitda.reduce((a,b)=>a+b,0);
   const breakEven = ebitda.findIndex(v=>v>0) + 1;
 
   document.getElementById('pnl-summary').innerHTML = `
-    <div class="summary-box">
-      <div class="summary-box-label">Tổng DT năm</div>
-      <div class="summary-box-value" style="color:var(--blue)">${(totalRev/1e9).toFixed(2)}B</div>
-    </div>
-    <div class="summary-box">
-      <div class="summary-box-label">Tổng lợi nhuận gộp</div>
-      <div class="summary-box-value" style="color:var(--accent)">${(totalGross/1e9).toFixed(2)}B</div>
-    </div>
-    <div class="summary-box">
-      <div class="summary-box-label">EBITDA cả năm</div>
-      <div class="summary-box-value" style="color:${totalEbitda>=0?'var(--accent)':'var(--red)'}">${(totalEbitda/1e9).toFixed(2)}B</div>
-    </div>
-    <div class="summary-box">
-      <div class="summary-box-label">Hoà vốn tháng</div>
-      <div class="summary-box-value" style="color:var(--amber)">${breakEven > 0 ? 'T' + breakEven : 'Chưa'}</div>
-    </div>
-    <div class="summary-box">
-      <div class="summary-box-label">EBITDA margin</div>
-      <div class="summary-box-value" style="color:var(--purple)">${(totalEbitda/totalRev*100).toFixed(1)}%</div>
-    </div>
+    <div class="summary-box"><div class="summary-box-label">Tổng DT năm</div><div class="summary-box-value" style="color:var(--blue)">${(totalRev/1e9).toFixed(2)}B</div></div>
+    <div class="summary-box"><div class="summary-box-label">Tổng lợi nhuận gộp</div><div class="summary-box-value" style="color:var(--accent)">${(totalGross/1e9).toFixed(2)}B</div></div>
+    <div class="summary-box"><div class="summary-box-label">EBITDA cả năm</div><div class="summary-box-value" style="color:${totalEbitda>=0?'var(--accent)':'var(--red)'}">${(totalEbitda/1e9).toFixed(2)}B</div></div>
+    <div class="summary-box"><div class="summary-box-label">Hoà vốn tháng</div><div class="summary-box-value" style="color:var(--amber)">${breakEven>0?'T'+breakEven:'Chưa'}</div></div>
+    <div class="summary-box"><div class="summary-box-label">EBITDA margin</div><div class="summary-box-value" style="color:var(--purple)">${(totalEbitda/totalRev*100).toFixed(1)}%</div></div>
   `;
 }
 
@@ -1010,16 +591,7 @@ function setScenario(s) {
   Object.entries(vals[s]).forEach(([k,v]) => { const el = document.getElementById(k); if(el) el.value = v; });
   calcPnl();
 }
-
 function resetToBase() { setScenario('base'); }
-
-// ─── NAV ───
-function showTab(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-'+id).classList.add('active');
-  event.target.classList.add('active');
-}
 
 // ─── PNL PRODUCT CALCULATOR ───
 const calcData = [
@@ -1031,44 +603,33 @@ const calcData = [
   { name: 'Giấy in nhiệt A6 (100×150) – 500 tờ', cost: 0, price: 0 }
 ];
 
-const feeTiers = [15, 20, 25, 30];     // Phí sàn
-const marginTiers = [15, 20, 25, 30];  // Lợi nhuận mục tiêu
+const feeTiers = [15, 20, 25, 30];
+const marginTiers = [15, 20, 25, 30];
 
 function initCalculator() {
-  // 1. Render Input Cards
   const grid = document.getElementById('calc-input-grid');
   grid.innerHTML = calcData.map((item, idx) => `
     <div class="card" style="padding: 20px;">
       <div class="card-title" style="margin-bottom: 16px; color: var(--text);">${item.name}</div>
       <div style="display: flex; gap: 16px;">
-        <div style="flex: 1;">
-          <label class="input-label" style="display:block; margin-bottom: 6px;">Giá mua (VNĐ)</label>
-          <input type="number" class="input-field" placeholder="0" oninput="updateCalcItem(${idx}, 'cost', this.value)">
-        </div>
-        <div style="flex: 1;">
-          <label class="input-label" style="display:block; margin-bottom: 6px;">Giá bán (VNĐ)</label>
-          <input type="number" class="input-field" placeholder="0" oninput="updateCalcItem(${idx}, 'price', this.value)">
-        </div>
+        <div style="flex: 1;"><label class="input-label" style="display:block; margin-bottom: 6px;">Giá mua (VNĐ)</label><input type="number" class="input-field" placeholder="0" oninput="updateCalcItem(${idx}, 'cost', this.value)"></div>
+        <div style="flex: 1;"><label class="input-label" style="display:block; margin-bottom: 6px;">Giá bán thực tế (VNĐ)</label><input type="number" class="input-field" placeholder="0" oninput="updateCalcItem(${idx}, 'price', this.value)"></div>
       </div>
     </div>
   `).join('');
 
-  // 2. Render Table Headers
   const thead = document.getElementById('calc-thead');
-  let row1 = `<tr><th rowspan="3" style="min-width: 250px; position: sticky; left: 0; background: var(--bg2); z-index: 2; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border2);">Sản phẩm</th>`;
-  let row2 = `<tr>`;
-  let row3 = `<tr>`;
+  let row1 = `<tr><th style="min-width: 250px; position: sticky; left: 0; background: var(--bg2); z-index: 2; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border2); padding: 16px 12px; font-size: 13px; color: var(--text2); font-family: var(--sans); text-transform: none; letter-spacing: 0;">Sản phẩm</th>`;
+  let row2 = `<tr><th style="min-width: 250px; position: sticky; left: 0; background: var(--bg2); z-index: 2; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border2); padding: 16px 12px; font-size: 14px; color: var(--text); font-weight: 600; font-family: var(--sans); text-transform: none; letter-spacing: 0;">Mục tiêu ➔</th>`;
 
   feeTiers.forEach(fee => {
-    row1 += `<th colspan="8" style="text-align: center; border-left: 1px solid var(--border2); border-bottom: 1px solid var(--border2); color: var(--blue); font-size: 11px;">Phí sàn ${fee}%</th>`;
+    row1 += `<th colspan="${marginTiers.length}" style="text-align: left; border-left: 1px solid var(--border2); border-bottom: 1px solid var(--border2); font-size: 14px; color: var(--text); padding: 16px 12px; font-family: var(--sans); text-transform: none; letter-spacing: 0;">Phí sàn ${fee}%</th>`;
     marginTiers.forEach(margin => {
-      row2 += `<th colspan="2" style="text-align: center; border-left: 1px solid var(--border2); border-bottom: 1px solid var(--border2); font-size: 10px;">LN mục tiêu ${margin}%</th>`;
-      row3 += `<th style="text-align: center; border-left: 1px solid var(--border2); font-size: 10px; color: var(--text3);">LN thực tế</th>`;
-      row3 += `<th style="text-align: center; font-size: 10px; color: var(--text3);">Giá bán cần</th>`;
+      row2 += `<th style="text-align: left; border-left: 1px solid var(--border2); border-bottom: 1px solid var(--border2); font-size: 14px; color: var(--text); padding: 16px 12px; font-family: var(--sans); text-transform: none; letter-spacing: 0;">Lợi nhuận mục tiêu ${margin}%</th>`;
     });
   });
 
-  thead.innerHTML = row1 + `</tr>` + row2 + `</tr>` + row3 + `</tr>`;
+  thead.innerHTML = row1 + `</tr>` + row2 + `</tr>`;
   renderCalcBody();
 }
 
@@ -1080,33 +641,37 @@ function updateCalcItem(idx, field, value) {
 function renderCalcBody() {
   const tbody = document.getElementById('calc-tbody');
   tbody.innerHTML = calcData.map(item => {
-    let tr = `<tr><td style="position: sticky; left: 0; background: var(--bg2); z-index: 1; border-right: 1px solid var(--border);"><strong>${item.name}</strong></td>`;
+    let costK = item.cost > 0 ? (item.cost / 1000) + 'k' : '0';
+    let priceK = item.price > 0 ? (item.price / 1000) + 'k' : '0';
+
+    let tr = `<tr>
+      <td style="position: sticky; left: 0; background: var(--bg2); z-index: 1; border-right: 1px solid var(--border); padding: 16px 12px; vertical-align: top;">
+        <div style="font-weight: 500; font-size: 14px; margin-bottom: 6px; color: var(--text);">${item.name}</div>
+        <div style="font-size: 13px; color: var(--text2);">(Vốn ${costK} - Bán ${priceK})</div>
+      </td>`;
 
     feeTiers.forEach(fee => {
       const f = fee / 100;
       marginTiers.forEach(margin => {
         const m = margin / 100;
 
-        // LN Thực tế
-        let actualText = '—';
-        let actualColor = 'var(--text2)';
+        let reqPriceText = '—';
+        if (item.cost > 0) {
+          const divisor = 1 - f - m;
+          reqPriceText = divisor > 0 ? Math.round(item.cost / divisor).toLocaleString('vi-VN') : 'Lỗ';
+        }
+
+        let actualText = '—', actualColor = 'var(--text2)';
         if (item.price > 0 && item.cost > 0) {
           const actualMargin = 1 - (item.cost / item.price) - f;
           actualText = (actualMargin * 100).toFixed(1) + '%';
           actualColor = actualMargin >= m ? 'var(--accent)' : 'var(--red)';
         }
 
-        // Giá bán cần
-        let reqPriceText = '—';
-        if (item.cost > 0) {
-          const divisor = 1 - f - m;
-          if (divisor > 0) {
-            reqPriceText = Math.round(item.cost / divisor).toLocaleString('vi-VN');
-          }
-        }
-
-        tr += `<td style="text-align: center; border-left: 1px solid var(--border2); color: ${actualColor}; font-family: var(--mono);">${actualText}</td>`;
-        tr += `<td style="text-align: center; color: var(--blue); font-family: var(--mono);">${reqPriceText}</td>`;
+        tr += `<td style="border-left: 1px solid var(--border2); padding: 16px 12px; vertical-align: top;">
+            <div style="margin-bottom: 12px; font-size: 14px;"><strong>Giá cần:</strong> <span style="font-family: var(--mono);">${reqPriceText}</span></div>
+            <div style="font-size: 14px;"><strong>LN thực tế:</strong> <span style="font-family: var(--mono); color: ${actualColor};">${actualText}</span></div>
+        </td>`;
       });
     });
 
