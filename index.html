@@ -603,7 +603,14 @@ const calcData = [
   { name: 'Giấy in nhiệt A6 (100×150) – 500 tờ', cost: 0, price: 0 }
 ];
 
-const feeTiers = [15, 20, 25, 30];
+// Thêm cột Bán lẻ không qua sàn (Phí 0%) vào đầu mảng
+const feeTiers = [
+  { name: 'Bán lẻ (Không qua sàn)', value: 0 },
+  { name: 'Phí sàn 15%', value: 15 },
+  { name: 'Phí sàn 20%', value: 20 },
+  { name: 'Phí sàn 25%', value: 25 },
+  { name: 'Phí sàn 30%', value: 30 }
+];
 const marginTiers = [15, 20, 25, 30];
 
 function initCalculator() {
@@ -622,8 +629,8 @@ function initCalculator() {
   let row1 = `<tr><th style="min-width: 250px; position: sticky; left: 0; background: var(--bg2); z-index: 2; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border2); padding: 16px 12px; font-size: 13px; color: var(--text2); font-family: var(--sans); text-transform: none; letter-spacing: 0;">Sản phẩm</th>`;
   let row2 = `<tr><th style="min-width: 250px; position: sticky; left: 0; background: var(--bg2); z-index: 2; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border2); padding: 16px 12px; font-size: 14px; color: var(--text); font-weight: 600; font-family: var(--sans); text-transform: none; letter-spacing: 0;">Mục tiêu ➔</th>`;
 
-  feeTiers.forEach(fee => {
-    row1 += `<th colspan="${marginTiers.length}" style="text-align: left; border-left: 1px solid var(--border2); border-bottom: 1px solid var(--border2); font-size: 14px; color: var(--text); padding: 16px 12px; font-family: var(--sans); text-transform: none; letter-spacing: 0;">Phí sàn ${fee}%</th>`;
+  feeTiers.forEach(tier => {
+    row1 += `<th colspan="${marginTiers.length}" style="text-align: left; border-left: 1px solid var(--border2); border-bottom: 1px solid var(--border2); font-size: 14px; color: var(--text); padding: 16px 12px; font-family: var(--sans); text-transform: none; letter-spacing: 0;">${tier.name}</th>`;
     marginTiers.forEach(margin => {
       row2 += `<th style="text-align: left; border-left: 1px solid var(--border2); border-bottom: 1px solid var(--border2); font-size: 14px; color: var(--text); padding: 16px 12px; font-family: var(--sans); text-transform: none; letter-spacing: 0;">Lợi nhuận mục tiêu ${margin}%</th>`;
     });
@@ -650,8 +657,8 @@ function renderCalcBody() {
         <div style="font-size: 13px; color: var(--text2);">(Vốn ${costK} - Bán ${priceK})</div>
       </td>`;
 
-    feeTiers.forEach(fee => {
-      const f = fee / 100;
+    feeTiers.forEach(tier => {
+      const f = tier.value / 100;
       marginTiers.forEach(margin => {
         const m = margin / 100;
 
