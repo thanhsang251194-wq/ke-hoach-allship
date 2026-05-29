@@ -388,100 +388,36 @@ tr:hover td { background: rgba(255,255,255,0.015); }
 </div>
 
 <div id="tab-products" class="section">
-<div class="container">
-  <div class="card" style="margin-bottom:16px">
-    <div class="card-title"><span class="dot blue"></span>SKU Chi tiết – Băng keo</div>
-    <div style="overflow-x:auto">
-    <table>
-      <tr>
-        <th>SKU</th><th class="right">Giá nhập (thùng)</th><th class="right">Giá bán</th><th class="right">Margin</th><th class="right">Vòng quay</th><th>Khách hàng mục tiêu</th><th>Ưu tiên</th>
-      </tr>
-      <tr>
-        <td><div style="font-weight:600">Băng keo trong 48mm×100y</div><div style="font-size:11px;color:var(--text3);font-family:var(--mono)">Thùng 36 cuộn</div></td>
-        <td class="right"><input type="number" class="table-input red" value="95000" oninput="updateMargin(this)"></td>
-        <td class="right"><input type="number" class="table-input green" value="130000" oninput="updateMargin(this)"></td>
-        <td class="right"><span class="badge blue margin-badge">27%</span></td>
-        <td class="right mono">15–20 ngày</td>
-        <td style="font-size:12px">Kho fulfillment, seller online, SME đóng gói hàng ngày</td>
-        <td><span class="badge green">SKU #1</span></td>
-      </tr>
-      <tr>
-        <td><div style="font-weight:600">Băng keo trong 72mm×100y</div><div style="font-size:11px;color:var(--text3);font-family:var(--mono)">Thùng 24 cuộn</div></td>
-        <td class="right"><input type="number" class="table-input red" value="115000" oninput="updateMargin(this)"></td>
-        <td class="right"><input type="number" class="table-input green" value="158000" oninput="updateMargin(this)"></td>
-        <td class="right"><span class="badge blue margin-badge">27%</span></td>
-        <td class="right mono">20–25 ngày</td>
-        <td style="font-size:12px">Kho lớn, hàng hóa to, pallet, thùng carton lớn</td>
-        <td><span class="badge blue">SKU #2</span></td>
-      </tr>
-      <tr>
-        <td><div style="font-weight:600">Băng keo hàng dễ vỡ</div><div style="font-size:11px;color:var(--text3);font-family:var(--mono)">Thùng 36 cuộn – In chữ Hàng Dễ Vỡ</div></td>
-        <td class="right"><input type="number" class="table-input red" value="130000" oninput="updateMargin(this)"></td>
-        <td class="right"><input type="number" class="table-input green" value="190000" oninput="updateMargin(this)"></td>
-        <td class="right"><span class="badge green margin-badge">32%</span></td>
-        <td class="right mono">30–45 ngày</td>
-        <td style="font-size:12px">Shop gốm sứ, mỹ phẩm, đồ điện tử, hàng giá trị cao</td>
-        <td><span class="badge amber">T4+</span></td>
-      </tr>
-    </table>
-    </div>
-    <div style="margin-top:16px;padding:14px;background:var(--bg3);border-radius:8px;font-size:12px;color:var(--text2)">
-      ⚠ <strong style="color:var(--amber)">Lưu ý nhập hàng băng keo:</strong> Kiểm tra độ dính (không bong sau 48h), độ trong (không ố vàng trong 6 tháng), tiếng kéo (băng keo chất lượng không phát tiếng to). Yêu cầu NCC sample 3 thùng test trước khi ký hợp đồng lô lớn. Có thể nhập thử thông số trực tiếp vào bảng để kiểm tra % Margin.
-    </div>
-  </div>
+  <div class="container">
+    
+    <div class="grid-3" id="calc-input-grid" style="margin-bottom: 24px; gap: 16px;">
+      </div>
 
-  <div class="card" style="margin-bottom:16px">
-    <div class="card-title"><span class="dot green"></span>SKU Chi tiết – Giấy in nhiệt</div>
-    <div style="overflow-x:auto">
-    <table>
-      <tr>
-        <th>SKU</th><th class="right">Giá nhập (thùng)</th><th class="right">Giá bán</th><th class="right">Margin</th><th class="right">Vòng quay</th><th>Khách hàng mục tiêu</th><th>Ưu tiên</th>
-      </tr>
-      <tr>
-        <td><div style="font-weight:600">Giấy in nhiệt 80×100mm</div><div style="font-size:11px;color:var(--text3);font-family:var(--mono)">Thùng 2.000 tờ – 1 lõi</div></td>
-        <td class="right"><input type="number" class="table-input red" value="52000" oninput="updateMargin(this)"></td>
-        <td class="right"><input type="number" class="table-input green" value="75000" oninput="updateMargin(this)"></td>
-        <td class="right"><span class="badge green margin-badge">31%</span></td>
-        <td class="right mono">7–10 ngày</td>
-        <td style="font-size:12px">Seller Shopee/TikTok, kho small fulfillment, người gửi hàng lẻ</td>
-        <td><span class="badge green">SKU #1</span></td>
-      </tr>
-      <tr>
-        <td><div style="font-weight:600">Giấy in nhiệt 100×150mm (A6)</div><div style="font-size:11px;color:var(--text3);font-family:var(--mono)">Thùng 2.000 tờ – 1 lõi</div></td>
-        <td class="right"><input type="number" class="table-input red" value="68000" oninput="updateMargin(this)"></td>
-        <td class="right"><input type="number" class="table-input green" value="98000" oninput="updateMargin(this)"></td>
-        <td class="right"><span class="badge green margin-badge">31%</span></td>
-        <td class="right mono">7–12 ngày</td>
-        <td style="font-size:12px">Kho fulfillment lớn, Lazada/Shopee Mall sellers, vận đơn tiêu chuẩn</td>
-        <td><span class="badge green">SKU #2</span></td>
-      </tr>
-      <tr>
-        <td><div style="font-weight:600">Giấy in nhiệt A4 (cuộn 80×80mm)</div><div style="font-size:11px;color:var(--text3);font-family:var(--mono)">Thùng 50 cuộn</div></td>
-        <td class="right"><input type="number" class="table-input red" value="210000" oninput="updateMargin(this)"></td>
-        <td class="right"><input type="number" class="table-input green" value="295000" oninput="updateMargin(this)"></td>
-        <td class="right"><span class="badge blue margin-badge">29%</span></td>
-        <td class="right mono">20–30 ngày</td>
-        <td style="font-size:12px">Quán cafe, nhà hàng, điểm bán lẻ dùng máy in hóa đơn</td>
-        <td><span class="badge amber">T3+</span></td>
-      </tr>
-    </table>
+    <div style="display: flex; gap: 24px; margin-bottom: 16px; font-size: 13px; font-weight: 500; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--accent);"></span>
+        Lợi nhuận thực tế (đạt mục tiêu)
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--red);"></span>
+        Lợi nhuận thực tế (thiếu)
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--blue);"></span>
+        Giá bán cần thiết để đạt mục tiêu
+      </div>
     </div>
-    <div style="margin-top:16px;padding:14px;background:var(--bg3);border-radius:8px;font-size:12px;color:var(--text2)">
-      ⚠ <strong style="color:var(--amber)">Lưu ý bảo quản giấy in nhiệt:</strong> Nhạy cảm với nhiệt độ &gt;40°C và độ ẩm &gt;70%. Kho phải có quạt/điều hòa. Giấy hỏng = không in được = mất uy tín ngay. Không để dưới ánh nắng trực tiếp. Hạn sử dụng 2 năm tính từ ngày sản xuất — luôn kiểm tra date trước khi nhập.
-    </div>
-  </div>
 
-  <div class="card">
-    <div class="card-title"><span class="dot amber"></span>Chiến lược định giá & tăng margin theo thời gian</div>
-    <table>
-      <tr><th>Giai đoạn</th><th>Chiến lược</th><th class="right">Margin gộp TB</th><th>Lý do</th></tr>
-      <tr><td><span class="badge blue">T1–T3</span></td><td>Giá thị trường, không phá giá</td><td class="right mono">27–29%</td><td style="font-size:12px;color:var(--text2)">Xây dựng uy tín, chứng minh chất lượng trước</td></tr>
-      <tr><td><span class="badge green">T4–T6</span></td><td>Giữ giá + thêm Băng keo hàng dễ vỡ</td><td class="right mono">29–31%</td><td style="font-size:12px;color:var(--text2)">Hàng dễ vỡ margin cao hơn 5–6%, upsell khách cũ</td></tr>
-      <tr><td><span class="badge amber">T7–T9</span></td><td>Combo giảm 3–5% cho hợp đồng 3 tháng</td><td class="right mono">26–28%</td><td style="font-size:12px;color:var(--text2)">Đổi lấy cam kết volume, dự báo được doanh thu</td></tr>
-      <tr><td><span class="badge purple">T10–T12</span></td><td>Hợp đồng năm + đàm phán lại NCC</td><td class="right mono">28–32%</td><td style="font-size:12px;color:var(--text2)">Volume đủ lớn để ép giá NCC thêm 5%, margin tăng</td></tr>
-    </table>
+    <div class="card" style="padding: 0; overflow-x: auto;">
+      <table id="calc-table" style="width: max-content; min-width: 100%;">
+        <thead id="calc-thead" style="background: var(--bg3);">
+          </thead>
+        <tbody id="calc-tbody">
+          </tbody>
+      </table>
+    </div>
+
   </div>
-</div>
 </div>
 
 <div id="tab-timeline" class="section">
@@ -947,7 +883,7 @@ function renderTimeline() {
   `).join('');
 }
 
-// ─── P&L CALCULATOR ───
+// ─── PNL CALCULATOR ───
 function getVal(id) { return parseFloat(document.getElementById(id).value) || 0; }
 function fmt(n) { return Math.round(n).toLocaleString('vi-VN'); }
 
@@ -1085,9 +1021,103 @@ function showTab(id) {
   event.target.classList.add('active');
 }
 
+// ─── PNL PRODUCT CALCULATOR ───
+const calcData = [
+  { name: 'Băng keo 48mm×200Y – 1,2kg', cost: 0, price: 0 },
+  { name: 'Băng keo 48mm×200Y – 1,8kg', cost: 0, price: 0 },
+  { name: 'Giấy in nhiệt A7 (75×100) – 350 tờ', cost: 0, price: 0 },
+  { name: 'Giấy in nhiệt A7 (75×100) – 500 tờ', cost: 0, price: 0 },
+  { name: 'Giấy in nhiệt A6 (100×150) – 350 tờ', cost: 0, price: 0 },
+  { name: 'Giấy in nhiệt A6 (100×150) – 500 tờ', cost: 0, price: 0 }
+];
+
+const feeTiers = [15, 20, 25, 30];     // Phí sàn
+const marginTiers = [15, 20, 25, 30];  // Lợi nhuận mục tiêu
+
+function initCalculator() {
+  // 1. Render Input Cards
+  const grid = document.getElementById('calc-input-grid');
+  grid.innerHTML = calcData.map((item, idx) => `
+    <div class="card" style="padding: 20px;">
+      <div class="card-title" style="margin-bottom: 16px; color: var(--text);">${item.name}</div>
+      <div style="display: flex; gap: 16px;">
+        <div style="flex: 1;">
+          <label class="input-label" style="display:block; margin-bottom: 6px;">Giá mua (VNĐ)</label>
+          <input type="number" class="input-field" placeholder="0" oninput="updateCalcItem(${idx}, 'cost', this.value)">
+        </div>
+        <div style="flex: 1;">
+          <label class="input-label" style="display:block; margin-bottom: 6px;">Giá bán (VNĐ)</label>
+          <input type="number" class="input-field" placeholder="0" oninput="updateCalcItem(${idx}, 'price', this.value)">
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // 2. Render Table Headers
+  const thead = document.getElementById('calc-thead');
+  let row1 = `<tr><th rowspan="3" style="min-width: 250px; position: sticky; left: 0; background: var(--bg2); z-index: 2; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border2);">Sản phẩm</th>`;
+  let row2 = `<tr>`;
+  let row3 = `<tr>`;
+
+  feeTiers.forEach(fee => {
+    row1 += `<th colspan="8" style="text-align: center; border-left: 1px solid var(--border2); border-bottom: 1px solid var(--border2); color: var(--blue); font-size: 11px;">Phí sàn ${fee}%</th>`;
+    marginTiers.forEach(margin => {
+      row2 += `<th colspan="2" style="text-align: center; border-left: 1px solid var(--border2); border-bottom: 1px solid var(--border2); font-size: 10px;">LN mục tiêu ${margin}%</th>`;
+      row3 += `<th style="text-align: center; border-left: 1px solid var(--border2); font-size: 10px; color: var(--text3);">LN thực tế</th>`;
+      row3 += `<th style="text-align: center; font-size: 10px; color: var(--text3);">Giá bán cần</th>`;
+    });
+  });
+
+  thead.innerHTML = row1 + `</tr>` + row2 + `</tr>` + row3 + `</tr>`;
+  renderCalcBody();
+}
+
+function updateCalcItem(idx, field, value) {
+  calcData[idx][field] = parseFloat(value) || 0;
+  renderCalcBody();
+}
+
+function renderCalcBody() {
+  const tbody = document.getElementById('calc-tbody');
+  tbody.innerHTML = calcData.map(item => {
+    let tr = `<tr><td style="position: sticky; left: 0; background: var(--bg2); z-index: 1; border-right: 1px solid var(--border);"><strong>${item.name}</strong></td>`;
+
+    feeTiers.forEach(fee => {
+      const f = fee / 100;
+      marginTiers.forEach(margin => {
+        const m = margin / 100;
+
+        // LN Thực tế
+        let actualText = '—';
+        let actualColor = 'var(--text2)';
+        if (item.price > 0 && item.cost > 0) {
+          const actualMargin = 1 - (item.cost / item.price) - f;
+          actualText = (actualMargin * 100).toFixed(1) + '%';
+          actualColor = actualMargin >= m ? 'var(--accent)' : 'var(--red)';
+        }
+
+        // Giá bán cần
+        let reqPriceText = '—';
+        if (item.cost > 0) {
+          const divisor = 1 - f - m;
+          if (divisor > 0) {
+            reqPriceText = Math.round(item.cost / divisor).toLocaleString('vi-VN');
+          }
+        }
+
+        tr += `<td style="text-align: center; border-left: 1px solid var(--border2); color: ${actualColor}; font-family: var(--mono);">${actualText}</td>`;
+        tr += `<td style="text-align: center; color: var(--blue); font-family: var(--mono);">${reqPriceText}</td>`;
+      });
+    });
+
+    return tr + `</tr>`;
+  }).join('');
+}
+
 // INIT
 renderTimeline();
 calcPnl();
+initCalculator();
 </script>
 </body>
 </html>
